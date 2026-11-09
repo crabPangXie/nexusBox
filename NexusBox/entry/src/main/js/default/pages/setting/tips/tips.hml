@@ -1,0 +1,19 @@
+<stack class="container" on:swipe="close">
+    <image style="width: 466px;height: 480px;" src="/common/device/bgd.png"></image>
+    <list class="list" ref="list">
+        <list-item class="item_title">
+            <text style="font-size: 38px;font-family: {{font}};">如何传输</text>
+        </list-item>
+        <list-item style="width:100%;height: 200px;justify-content: flex-start;align-items: flex-start;">
+            <text style="width:100%;padding: 0px 20px;color: #b3ffffff;">请前往华为应用市场（AppGallery）搜索并下载“腕连闪传”App，即可实现手机手表间文件传输及信息协同相关功能。</text>
+        </list-item>
+        <list-item class="item_qrcode">
+            <div class="qrcodeDiv">
+                <qrcode class="qrcode" value="https://url.cloud.huawei.com/CHxDsmk6Pe"></qrcode>
+            </div>
+            <text class="qrcode_tip">扫码下载腕连闪传APP</text>
+        </list-item>
+        <list-item style="height: 100px;"></list-item>
+    </list>
+    <input class="bar_back" grab:click="close"></input>
+</stack>

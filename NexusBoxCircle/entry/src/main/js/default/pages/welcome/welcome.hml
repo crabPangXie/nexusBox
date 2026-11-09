@@ -1,0 +1,53 @@
+<stack class="container" on:swipe="refuse">
+<!--    隐私-->
+    <list class="container" ref="list">
+        <list-item class="container" style="height: 40px;"></list-item>
+        <list-item class="container" style="height: 114px;">
+            <image show="{{privacyAni==1}}" class="welcome_icon" src="/common/welcome/icon.png"></image>
+        </list-item>
+        <list-item class="container" style="height: 80px;margin-top: 5px;">
+            <text class="welcome_title">欢迎使用</text>
+            <text style="font-family: {{font}};">腕连工具箱</text>
+        </list-item>
+        <list-item class="container" style="height: 200px;justify-content: flex-start;margin-top: 10px;">
+            <text class="welcome_title">应用介绍</text>
+            <text class="welcome_intro">"腕连工具箱"是一款多功能效率工具，集文件管理、文本阅读、图片与视频播放、代码编辑、设备检测等功能于一体，让手表使用更便捷高效。</text>
+        </list-item>
+        <list-item class="container" style="height: 235px;justify-content: flex-start;margin-top: 25px;">
+            <text class="welcome_title">使用教程</text>
+            <text class="welcome_intro">开始使用前,请先在应用市场搜索并安装手机端应用“腕连闪传”,目前仅支持Android系统,暂不支持鸿蒙与iOS;安装并连接后即可正常使用腕连工具箱的相关功能。</text>
+        </list-item>
+        <list-item class="container"  style="height: 265px;margin-top: 25px;">
+            <div class="qrcodeDiv">
+                <qrcode class="qrcode" value="https://url.cloud.huawei.com/CHxDsmk6Pe"></qrcode>
+            </div>
+            <text class="welcome_title">扫码下载腕连闪传APP</text>
+        </list-item>
+        <list-item class="container" style="height: 210px;justify-content: flex-start;margin-top: 25px;">
+            <text class="welcome_title">隐私政策</text>
+            <text class="welcome_text">点击“同意”按钮，即代表您已阅读本应用相关协议并表示同意。个人信息处理详情，请参阅《关于腕连工具箱于隐私的声明》</text>
+        </list-item>
+        <list-item class="container"  style="height: 265px;margin-top: 25px;">
+            <div class="qrcodeDiv">
+                <qrcode class="qrcode" value="https://fseatech.cn/crab/nexustools.html"></qrcode>
+            </div>
+            <text class="welcome_title">《关于腕连工具箱与隐私的声明》</text>
+        </list-item>
+        <list-item class="container" style="height: 185px;margin-top: 30px;">
+            <input on:click="confirm" class="welcome_btn welcome_agree" value="同意"></input>
+            <input on:click="refuse" class="welcome_btn welcome_disagree" value="拒绝"></input>
+        </list-item>
+        <list-item style="height: 60px;"></list-item>
+    </list>
+    <stack class="container" if="{{!!arrowX}}" grab:click="grabTouch"></stack>
+    <image style="width: 466px;height: 480px;opacity: {{arrowX*2}};" src="/common/welcome/bgd.png"></image>
+    <image style="width: 340px;height: 340px;left: {{c1.x}};top: {{c1.y}};" src="/common/welcome/circle.png"></image>
+    <image style="width: 260px;height: 260px;left: {{c2.x}};top: {{c2.y}};" src="/common/welcome/circle.png"></image>
+    <image class="title" style="top: {{182-50*(arrowX>1?1:arrowX)}};opacity: {{arrowX}};" src="/common/welcome/welcome.png"></image>
+    <input show="{{!!arrowX}}" class="btn" on:click="start" style="opacity: {{arrowX}};"></input>
+    <image class="arrow" src="/common/welcome/arrow.png" style="left: {{-8+223*arrowX}};"></image>
+    <div class="container" style="background-color: white;opacity: {{arrowX-1}};"></div>
+<!--    开屏-->
+    <stack show="{{privacyAni!=1}}" grab:swipe="grabTouch" class="container" style="background-color: black;opacity: {{1-privacyAni}};"></stack>
+    <image show="{{privacyAni!=1}}" class="welcome_icon" style="width:{{174-60*privacyAni-60*privacyIcon}};height: {{174-60*privacyAni-60*privacyIcon}};left:{{146+30*privacyAni+30*privacyIcon}};top: {{153-113*privacyAni+privacyIcon*400}};opacity: {{1-privacyIcon*2}};" src="/common/welcome/icon.png"></image>
+</stack>

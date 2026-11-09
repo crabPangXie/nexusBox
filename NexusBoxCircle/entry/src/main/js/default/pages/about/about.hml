@@ -1,0 +1,79 @@
+<stack class="container" on:swipe="swipe">
+    <image style="width: 466px;height: 480px;" src="/common/device/bgd.png"></image>
+    <list class="list" ref="list" style="left: {{width/2-200}};">
+        <list-item style="height: 120px;"class="title">
+            <text style="font-size: 38px;font-family: {{font}};">关于</text>
+        </list-item>
+        <list-item class="image" style="margin-top: -20px;">
+            <image class="image" src="/common/setting/app.png"></image>
+        </list-item>
+        <list-item class="card">
+            <text style="font-family: {{font}};">版本号</text>
+            <text style="opacity: 0.6;">v{{version}}{{devVersion?'-dev':''}}</text>
+        </list-item>
+        <list-item class="card_big">
+            <text style="font-family: {{font}};margin-top: 20px;">参与开发的人员</text>
+            <text style="opacity: 0.6;margin-top: 10px;">@螃蟹kuN -手表端开发\n@GM -手机端开发\n@drtPolice -手机端开发</text>
+        </list-item>
+        <list-item class="card_big" style="height: 210px;">
+            <text style="font-family: {{font}};margin-top: 20px;">特别鸣谢</text>
+            <text style="opacity: 0.6;margin-top: 10px;">@kqakqakqa -技术指导\n@穗葵吖 -素材绘制\n@泛舟客 -应用宣发</text>
+        </list-item>
+        <list-item class="card_big" style="height: {{110+35*lines}};">
+            <text style="font-family: {{font}};margin-top: 20px;">更新日志</text>
+            <text style="margin-top: 10px;opacity: 0.6;">{{upDate}}</text>
+        </list-item>
+        <list-item class="card_big" style="height: 135px;">
+            <text style="font-family: {{font}};margin-top: 20px;">探索更多</text>
+            <text style="opacity: 0.6;margin-top: 10px;">QQ群：1076737411</text>
+        </list-item>
+        <list-item class="card" on:click="showAlert(1)">
+            <text style="font-family: {{font}};">开源代码许可-devdemo</text>
+            <image class="right" src="/common/arrow_white.png"></image>
+        </list-item>
+        <list-item class="card" on:click="showAlert(2)">
+            <text style="font-family: {{font}};">隐私政策</text>
+            <image class="right" src="/common/arrow_white.png"></image>
+        </list-item>
+        <list-item style="height: 20px;"></list-item>
+        <list-item class="earth_container" if="{{earthOn}}">
+            <text class="earth">{{earth}}</text>
+        </list-item>
+        <list-item class="card" style="background-color: transparent;height: 80px;">
+            <image src="/common/setting/nexus_cn.png" on:click="egg" style="width: 169px;height: 40px;"></image>
+        </list-item>
+        <list-item style="height: 60px;"></list-item>
+    </list>
+
+    <stack class="container" show="{{alertShow>0}}" style="background-color:#33000000" grab:click="grabClick" grab:swipe="swipeAlert"></stack>
+    <div class="alert" show="{{alertIf}}" style="left: {{width/2-200}};top: {{(screen=='rect'?70:100)+(alertShow?0:450)}};animation-name: {{alertShow?'up':'down'}};">
+        <div class="alert_bar">
+            <text style="font-family: {{font}};font-size: 38px;">{{['开源代码许可','隐私政策'][alertShow-1]}}</text>
+            <input class="close" on:click="closeAlert"></input>
+        </div>
+        <div class="alert_container">
+            <div class="alert_qr">
+                <qrcode style="width: 140px;height: 140px;" value="{{ ['https://github.com/kqakqakqa/hmlitewearable_devdemo','https://fseatech.cn/crab/nexustools.html'][alertShow-1]}}"></qrcode>
+            </div>
+            <text style="font-size: 24px;" show="{{alertShow==1}}">hmlitewearable-devdemo</text>
+            <text style="font-size: 24px;" show="{{alertShow==2}}">《关于腕连工具箱与隐私的声明》</text>
+            <text style="color: #80ffffff;font-size: 24px;" show="{{alertShow==1}}">类型:MIT License</text>
+        </div>
+    </div>
+
+    <stack class="container" show="{{letterShow}}" style="background-color:#33000000" grab:click="closeLetter" grab:swipe="closeLetter"></stack>
+    <div class="alert" show="{{letterIf}}" style="left: {{width/2-200}};top: {{(screen=='rect'?70:100)+(letterShow?0:450)}};animation-name: {{letterShow?'up':'down'}};">
+        <div class="alert_bar">
+            <text style="font-family: {{font}};font-size: 38px;">开发者的话</text>
+            <input class="close" on:click="closeLetter"></input>
+        </div>
+        <list class="alert_container" ref="letter">
+            <list-item style="width: 360px;height: 828px;">
+                <text style="width: 360px;font-size: 24px;line-height: 36px;text-align: left;color: #bfffffff;">致爱折腾的“点子王”们：\n五年前，螃蟹用着硬件极差的GT2e，混迹在各种大佬的教程里——靠通知栏看小说，靠极限优化玩小恐龙。那时候我就在想，要是有一个能直接看小说、看图、甚至看视频的工具就好了。\n五年后，螃蟹把这个工具做出来了，它的名字叫“腕连工具箱”。\n做这个 App，是为了款待当年那个在酷安里到处找教程的自己，也是为了致敬那些纯粹的学生时代的大佬。\n这款工具箱是免费的。因为我知道，用手表折腾这些的，大多都是学生。所以，别被设备限制了想象力，带上你的灵感，去做点“没用”但快乐的东西。愿你也能在小小的屏幕上，看见大大的世界。\n如果有一天，你也做出了让自己骄傲的东西，记得对着屏幕，郑重地说一句：\nhello, world!</text>
+            </list-item>
+            <list-item style="height: 100px;"></list-item>
+        </list>
+    </div>
+
+    <text class="msg" if="{{ msg.if }}" on:click="closeMsg" style="left: {{width/2-160}};">{{ msg.content }}</text>
+</stack>

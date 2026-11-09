@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "entry_MainAbility",
+      "value": "腕连工具箱"
+    },
+    {
+      "name": "heart",
+      "value": "读取心率等健康数据，用于应用内传感器监视器展示"
+    },
+    {
+      "name": "activity",
+      "value": "获取运动计步与佩戴状态，用于应用内传感器监视器展示"
+    }
+  ]
+}

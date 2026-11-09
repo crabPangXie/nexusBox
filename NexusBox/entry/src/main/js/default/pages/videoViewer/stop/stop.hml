@@ -1,0 +1,23 @@
+<stack class="container" on:click="play" on:swipe="close">
+    <image class="container" src="{{realUri}}"></image>
+    <div class="topBar" grab:click="close">
+        <image class="topBar_left" src="/common/media/left.png"></image>
+        <marquee class="topBar_title">{{title}}</marquee>
+    </div>
+    <div class="bottomBar" grab:swipe="grabTouch"  grab:click="grabTouch">
+        <image grab:click="changTarget" style="width: 55px;height: 100%;" src="/common/media/{{target==0?'frame':(target==1?'light':'volume')}}.png"></image>
+        <div class="bottomBar_progressBg">
+            <div class="bottomBar_progress" style="width: {{40+210*setArr[target]/100}};">
+                <div class="bottomBar_dot"></div>
+            </div>
+        </div>
+        <div class="bottomBar_btn">
+            <text class="bottomBar_text">{{setArr[target]}}%</text>
+        </div>
+    </div>
+    <slider class="slider" ref="slider" grab:change="listenSlider" grab:swipe="grabTouch"  max="50" value="{{setArr[target]/2}}" min="0"></slider>
+    <image class="stop" src="/common/media/stop.png"></image>
+    <stack class="container" show="{{showPopup}}" grab:click="confirmPopup" grab:swipe="grabTouch">
+        <image class="popup" src="/common/popup.png"></image>
+    </stack>
+</stack>

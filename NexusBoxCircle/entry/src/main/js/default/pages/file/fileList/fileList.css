@@ -1,0 +1,228 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+}
+.bar_bgd{
+    width: 290px;
+    height: 100px;
+    left: 88px;
+    top: 12px;
+}
+.bar_uri{
+    left: 165px;
+    top: 45px;
+    width: 180px;
+    height: 30px;
+    font-size: 24px;
+    color: #101010;
+}
+.file_list{
+    width: 400px;
+    height: 296px;
+    left: 33px;
+    top: 100px;
+    flex-wrap: wrap;
+}
+.file_item{
+    width: 125px;
+    height: 135px;
+    margin: 4px;
+    flex-direction: column;
+    align-items: center;
+    border-radius:7px;
+}
+.file_icon{
+    width: 90px;
+    height: 70px;
+    margin: 5px;
+}
+.file_name{
+    width: 100%;
+    color: black;
+    font-size: 24px;
+    text-align: center;
+    line-height: 26px
+}
+
+.progress_circle{
+    width: 100%;
+    height: 100%;
+    stroke-width: 10px;
+    start-angle: 60;
+    total-angle: 60;
+    color: transparent;
+    background-color: #999999;
+}
+.progress_circleBar{
+    width: 100%;
+    height: 100%;
+    stroke-width: 10px;
+    color: #dddddd;
+    background-color: transparent;
+}
+.tool_div{
+    width: 240px;
+    height: 80px;
+    top: 385px;
+    left: 113px;
+    justify-content: center;
+}
+.tool_btn{
+    width: 60px;
+    height: 60px;
+    background-color: transparent;
+    border-radius: 0px;
+}
+.empty_img{
+    width: 100px;
+    height: 100px;
+    margin-top: 50px;
+}
+.empty_btn{
+    width: 180px;
+    height: 60px;
+    margin-top: 20px;
+    border-radius: 30px;
+    color: black;
+    background-color: white;
+    border-width: 3px;
+    border-color: #dedede;
+}
+.empty_new{
+    width: 200px;
+    height: 30px;
+    color: #BE4F65;
+    margin-top: 5px;
+    background-color: transparent;
+    font-size: 24px;
+    border-radius: 0px;
+}
+.alert_box{
+    width: 350px;
+    height: 340px;
+    left: 58px;
+    background-color: #f2ffffff;
+    border-radius: 40px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    animation-duration: 280ms;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+.alert_list{
+    width: 340px;
+    height: 240px;
+    background-color: transparent;
+}
+.alert_title{
+    width: 90%;
+    height: 40px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: black;
+}
+.alert_item{
+    width: 100%;
+    height: 70px;
+    flex-direction: column;
+    align-items: center;
+}
+.alert_text{
+    width:100%;
+    height: 40px;
+}
+.alert_content{
+    width: 200px;
+    height: 100%;
+    color: #606060;
+}
+.alert_line{
+    width: 80%;
+    height: 1px;
+    margin-top: 15px;
+    background-color: #b3b3b3;
+}
+
+.task_box{
+    width: 320px;
+    height: 225px;
+    left: 73px;
+    top: 128px;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f2ffffff;
+    border-radius: 30px;
+}
+@keyframes up{
+    from{
+        transform: translateY(410);
+    }
+    to{
+        transform: translateY(0);
+    }
+}
+@keyframes down{
+    from{
+        transform: translateY(-410);
+    }
+    to{
+        transform: translateY(0);
+    }
+}
+.task_circle{
+    width: 90px;
+    height: 90px;
+    border-radius: 90px;
+    border-width: 2px;
+    border-color: #1783FF;
+    margin-top: 20px;
+    padding: 3px;
+}
+.task_progress{
+    width: 80px;
+    height: 80px;
+    background-color: #ACD8FF;
+    border-radius: 40px;
+}
+.task_num{
+    width: 100%;
+    height: 30px;
+    top: 25px;
+    text-align: center;
+    color: #094575;
+    line-height: 30px;
+    font-size: 24px;
+}
+.task_text {
+    color: #505050;
+    font-size: 24px;
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    text-overflow: ellipsis;
+}
+.msg{
+    width:320px;
+    height: 70px;
+    left: 73px;
+    top: 340px;
+    background-color: #f7383838;
+    border-radius: 35px;
+    text-align: center;
+    font-size: 24px;
+}
+.tips{
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    opacity: 0.5;
+}

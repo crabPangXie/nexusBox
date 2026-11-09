@@ -1,0 +1,76 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+}
+.deleting_mask{
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.deleting_text{
+    width: 100%;
+    margin-top: 15px;
+    font-size: 30px;
+    text-align: center;
+    color: #838383;
+}
+.list{
+    width: 400px;
+    height: 100%;
+    left: 4px;
+}
+.list_item{
+    width: 100%;
+    height: 100px;
+    margin-bottom: 8px;
+    background-color: #1E1E1E;
+    border-radius: 30px;
+    justify-content: flex-start;
+    align-items: center;
+}
+.name{
+    width: 300px;
+    height: 38px;
+    margin-left: 25px;
+}
+.check{
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+}
+.btn{
+    width: 260px;
+    height: 75px;
+    left: 74px;
+    top: 10px;
+    border-radius: 40px;
+    background-color: #093566;
+    color: #1783FF;
+}
+.delete{
+    background-color: #E84026;
+    top: 395px;
+    color: white;
+}
+
+.msg{
+    width:320px;
+    height: 70px;
+    left: 44px;
+    top: 360px;
+    background-color: #f7383838;
+    border-radius: 35px;
+    text-align: center;
+    font-size: 24px;
+}

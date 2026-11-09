@@ -1,0 +1,23 @@
+<stack class="container" on:touchstart="touchStart" on:touchmove="touchMove" on:touchend="touchEnd" on:click="clickPage">
+    <image src="{{uri}}" style="object-fit: contain;width: {{408*zoom/100}};height: {{480*zoom/100}};left: {{offsetX-204*zoom/100+204}};top: {{offsetY-240*zoom/100+240}};"></image>
+    <div class="topBar" grab:click="close" show="{{barIf}}" style="top:{{15+(barShow?-85:0)}};animation-name:{{barShow?'topDown':'topUp'}};">
+        <image class="topBar_left" src="/common/media/left.png"></image>
+        <marquee class="topBar_title">{{title}}</marquee>
+    </div>
+    <div class="bottomBar" grab:swipe="grabTouch" grab:click="grabTouch" show="{{barIf}}" style="top:{{410+(barShow?80:0)}};animation-name:{{barShow?'menuUp':'menuDown'}};">
+        <image grab:click="changTarget" style="width: 55px;height: 100%;" src="/common/media/{{target==0?'zoom':(target==1?'light':'picture')}}.png"></image>
+        <div class="bottomBar_progressBg">
+            <div class="bottomBar_progress" style="width: {{40+210*setArr[target]/(target==2?playList.length-1:100)}};">
+                <div class="bottomBar_dot"></div>
+            </div>
+        </div>
+        <div class="bottomBar_btn">
+            <text class="bottomBar_text">{{target>1?setArr[target]+1+'/'+playList.length:Math.round(setArr[target])+'%'}}</text>
+        </div>
+    </div>
+    <text class="idxBadge" show="{{badgeShow}}">{{setArr[2]+1}}/{{playList.length}}</text>
+    <slider style="top: {{barShow?410:-40}};" ref="slider" class="slider" grab:click="grabTouch" grab:change="listenSlider" grab:swipe="grabTouch" max="{{target==2?playList.length-1:50}}" value="{{target==2?setArr[2]:setArr[target]/2}}" min="0"></slider>
+    <stack class="container" show="{{showPopup}}" grab:click="confirmPopup" grab:swipe="grabTouch">
+        <image class="popup" src="/common/popup.png"></image>
+    </stack>
+</stack>

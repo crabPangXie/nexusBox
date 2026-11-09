@@ -1,0 +1,35 @@
+<stack class="container" on:swipe="close">
+    <image style="width: 466px;height: 480px;" src="/common/device/bgd.png"></image>
+    <list class="list" ref="list">
+        <list-item class="item_title">
+            <text style="font-family: {{font}};">亮度锁定</text>
+        </list-item>
+        <list-item class="item_card" style="height: 130px;" on:click="setLight">
+            <div class="item_box">
+                <text class="item_name">亮度设置</text>
+                <text class="item_tips">当前:{{light}}%</text>
+            </div>
+            <image class="right" src="/common/arrow_white.png"></image>
+        </list-item>
+        <list-item class="item_title" style="height: 60px;">
+            <text>启用页面</text>
+        </list-item>
+        <list-item class="item_card">
+            <text class="item_name">阅读页面</text>
+            <switch class="item_switch" checked="{{lightLock[0]}}" on:change="changeLock(0)"></switch>
+        </list-item>
+        <list-item class="item_card">
+            <text class="item_name">图库页面</text>
+            <switch class="item_switch" checked="{{lightLock[1]}}" on:change="changeLock(1)"></switch>
+        </list-item>
+        <list-item class="item_card">
+            <text class="item_name">视频页面</text>
+            <switch class="item_switch" checked="{{lightLock[2]}}" on:change="changeLock(2)"></switch>
+        </list-item>
+        <list-item style="width:100%;height: 160px;justify-content: flex-start;align-items: flex-start;">
+            <text style="width:100%;padding: 0px 20px;color: #b3ffffff;font-size: 24px;">开启后，将锁定对应界面的屏幕亮度为指定值。</text>
+        </list-item>
+        <list-item style="height: 100px;"></list-item>
+    </list>
+    <input class="bar_back" grab:click="close"></input>
+</stack>

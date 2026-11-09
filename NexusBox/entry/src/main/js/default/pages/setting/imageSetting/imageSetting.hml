@@ -1,0 +1,16 @@
+<stack class="container" on:swipe="close">
+    <image style="width: 466px;height: 480px;" src="/common/device/bgd.png"></image>
+    <list class="list" ref="list">
+        <list-item class="item_title">
+            <text style="font-family: {{font}};">图库设置</text>
+        </list-item>
+        <list-item class="item_card">
+            <text class="item_name">图库手势</text>
+            <switch class="item_switch" checked="{{gestureOn}}" on:change="onGesture"></switch>
+        </list-item>
+        <list-item style="width:100%;height: 300px;justify-content: flex-start;align-items: flex-start;">
+            <text style="width:100%;padding: 0px 20px;color: #b3ffffff;font-size: 24px;">开启后，将在图片查看界面启用以下手势：\n1.双击屏幕左侧/右侧，切换上一张/下一张图片\n2.双击屏幕中间放大/缩小图片</text>
+        </list-item>
+    </list>
+    <input class="bar_back" grab:click="close"></input>
+</stack>

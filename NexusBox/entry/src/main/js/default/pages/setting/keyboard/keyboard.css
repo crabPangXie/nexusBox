@@ -1,0 +1,118 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #F2EEE6;
+}
+.bar_div{
+    top: 0px;
+    width: 100%;
+    height: 120px;
+    justify-content: center;
+    align-items: center;
+}
+.bar_back{
+    width: 100px;
+    height: 100px;
+    left: 9px;
+    top: 9px;
+    background-image:url('/common/back.png');
+    background-color: transparent;
+    border-radius: 0px;
+}
+.font{
+    color: black;
+    font-size: 30px;
+}
+.intro{
+    top: 100px;
+    left: 28px;
+    width: 352px;
+    height: 300px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.name{
+    width: 352px;
+    height: 144px;
+    font-size: 60px;
+    line-height: 65px;
+    color: black;
+    text-align: left;
+}
+.title_rule{
+    width: 180px;
+    height: 1px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: #484848;
+}
+.typing{
+    width: 352px;
+    height: 44px;
+    margin-top: 14px;
+    justify-content: flex-start;
+    align-items: center;
+}
+.feature{
+    font-size: 30px;
+    color: black;
+    text-align: left;
+}
+.cursor{
+    width: 2px;
+    height: 30px;
+    margin-left: 2px;
+    background-color: #404040;
+}
+.author{
+    width: 352px;
+    font-size: 24px;
+    color: #80000000;
+    margin-top: 14px;
+    text-align: left;
+}
+.author_rule{
+    width: 80px;
+    height: 2px;
+    margin-top: 14px;
+    background-color: black;
+}
+.next_bar{
+    left: 174px;
+    width: 60px;
+    height: 8px;
+    top: 456px;
+    border-radius: 4px;
+    background-color: #80000000;
+}
+.license{
+    top: 140px;
+    width: 100%;
+    height: 290px;
+    flex-direction: column;
+    align-items: center;
+}
+.qr_card{
+    width: 220px;
+    height: 220px;
+    background-color: white;
+    border-radius: 25px;
+    justify-content: center;
+    align-items: center;
+}
+.qr{
+    width: 180px;
+    height: 180px;
+}
+.license_type{
+    font-size: 24px;
+    color: #80000000;
+    margin-top: 20px;
+}

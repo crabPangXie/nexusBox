@@ -1,0 +1,76 @@
+<stack class="container" on:swipe="close">
+    <image style="width: 466px;height: 480px;" src="/common/device/bgd.png"></image>
+    <list class="list" ref="list">
+        <list-item class="item_title">
+            <text style="font-family: {{font}};">设置</text>
+        </list-item>
+        <list-item class="item_card">
+            <text class="item_name">震动反馈</text>
+            <switch class="item_switch" checked="{{vibrate}}" on:change="onVibrate"></switch>
+        </list-item>
+        <list-item class="item_card">
+            <text class="item_name">屏幕常亮</text>
+            <switch class="item_switch" checked="{{keepScreen}}" on:change="onKeepScreen"></switch>
+        </list-item>
+        <list-item class="item_card" on:click="setLight">
+            <text class="item_name">亮度锁定</text>
+            <image class="right" src="/common/arrow_white.png"></image>
+        </list-item>
+        <list-item class="item_card" on:click="setVolume">
+            <text class="item_name">音量调节</text>
+            <image class="right" src="/common/arrow_white.png"></image>
+        </list-item>
+        <list-item class="item_card" on:click="clearWallpaper">
+            <text class="item_name">重置壁纸</text>
+            <image class="right" src="/common/arrow_white.png"></image>
+        </list-item>
+        <list-item class="item_title" style="height: 80px;">
+            <text>应用设置</text>
+        </list-item>
+        <list-item class="item_card" on:click="setFile">
+            <text class="item_name">文件管理</text>
+            <image class="right" src="/common/arrow_white.png"></image>
+        </list-item>
+        <list-item class="item_card" on:click="setReader">
+            <text class="item_name">阅读设置</text>
+            <image class="right" src="/common/arrow_white.png"></image>
+        </list-item>
+        <list-item class="item_card" on:click="setImage">
+            <text class="item_name">图库设置</text>
+            <image class="right" src="/common/arrow_white.png"></image>
+        </list-item>
+        <list-item class="item_card" on:click="setVideo">
+            <text class="item_name">视频播放</text>
+            <image class="right" src="/common/arrow_white.png"></image>
+        </list-item>
+        <list-item class="item_card" on:click="setScript">
+            <text class="item_name">代码编辑器</text>
+            <image class="right" src="/common/arrow_white.png"></image>
+        </list-item>
+        <list-item class="item_title" style="height: 80px;">
+            <text>更多</text>
+        </list-item>
+        <list-item class="item_card" on:click="tips">
+            <text class="item_name">如何传输？</text>
+            <image class="right" src="/common/arrow_white.png"></image>
+        </list-item>
+        <list-item class="item_card" on:click="clear">
+            <text class="item_name">停止使用</text>
+            <image class="right" src="/common/arrow_white.png"></image>
+        </list-item>
+        <list-item class="item_card" on:click="about">
+            <text class="item_name">关于应用</text>
+            <image class="right" src="/common/arrow_white.png"></image>
+        </list-item>
+        <list-item class="item_card" on:click="aboutKeyboard">
+            <text class="item_name">关于螃蟹输入法</text>
+            <image class="right" src="/common/arrow_white.png"></image>
+        </list-item>
+        <list-item style="height: 100px;"></list-item>
+    </list>
+    <text class="msg" if="{{ msg.if }}" on:click="closeMsg" >{{ msg.content }}</text>
+    <input class="bar_back" grab:click="close"></input>
+    <div show="{{openIdx>=0&&openAni<1}}" class="container" grab:click="grabTouch" style="background-color: #000000;opacity: {{1-openAni}}">
+        <image style="width: {{120+120*openAni}};height: {{120+120*openAni}};" src="/common/icons/9.png"></image>
+    </div>
+</stack>

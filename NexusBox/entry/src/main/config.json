@@ -1,0 +1,115 @@
+{
+  "app": {
+    "vendor": "crab",
+    "bundleName": "com.example.example",
+    "version": {
+      "code": 1,
+      "name": "1.0.0"
+    }
+  },
+  "deviceConfig": {},
+  "module": {
+    "deviceType": [
+      "liteWearable"
+    ],
+    "abilities": [
+      {
+        "name": "default",
+        "icon": "$media:icon",
+        "label": "$string:entry_MainAbility",
+        "type": "page"
+      }
+    ],
+    "distro": {
+      "moduleType": "entry",
+      "deliveryWithInstall": true,
+      "moduleName": "entry"
+    },
+    "js": [
+      {
+        "pages": [
+          "pages/index/index",
+          "pages/screenCast/screenCast",
+          "pages/trackpad/trackpad",
+          "pages/file/fileShare/fileShare",
+          "pages/file/index/index",
+          "pages/file/fileList/fileList",
+          "pages/file/fileSearch/fileSearch",
+          "pages/textViewer/normal/normal",
+          "pages/textViewer/hyper/hyper",
+          "pages/imageViewer/imageViewer",
+          "pages/keyboard/keyboard",
+          "pages/file/startSearch/startSearch",
+          "pages/scriptEmulator/simulator/simulator",
+          "pages/scriptEmulator/editor/editor",
+          "pages/videoViewer/play/play",
+          "pages/videoViewer/stop/stop",
+          "pages/rowList/rowList",
+          "pages/cardList/cardList",
+          "pages/editList/editList",
+          "pages/textEditor/load/load",
+          "pages/textEditor/editor/editor",
+          "pages/scriptEmulator/load/load",
+          "pages/setting/setting",
+          "pages/device/index/index",
+          "pages/device/benchmark/benchmark",
+          "pages/device/sensor/sensor",
+          "pages/welcome/welcome",
+          "pages/about/about",
+          "pages/setting/adjust/adjust",
+          "pages/setting/fileSetting/fileSetting",
+          "pages/setting/videoSetting/videoSetting",
+          "pages/setting/readSetting/readSetting",
+          "pages/setting/scriptSetting/scriptSetting",
+          "pages/setting/imageSetting/imageSetting",
+          "pages/setting/keyboard/keyboard",
+          "pages/setting/screenSetting/screenSetting",
+          "pages/setting/tips/tips"
+        ],
+        "name": "default"
+      }
+    ],
+    "reqPermissions": [
+      {
+        "reason": "使用加速度传感器",
+        "usedScene": {
+          "ability": [
+            "default"
+          ],
+          "when": "always"
+        },
+        "name": "ohos.permission.ACCELEROMETER"
+      },
+      {
+        "reason": "使用陀螺仪传感器",
+        "usedScene": {
+          "ability": [
+            "default"
+          ],
+          "when": "always"
+        },
+        "name": "ohos.permission.GYROSCOPE"
+      },
+      {
+        "reason": "$string:heart",
+        "usedScene": {
+          "ability": [
+            "default"
+          ],
+          "when": "always"
+        },
+        "name": "ohos.permission.READ_HEALTH_DATA"
+      },
+      {
+        "reason": "$string:activity",
+        "usedScene": {
+          "ability": [
+            "default"
+          ],
+          "when": "always"
+        },
+        "name": "ohos.permission.ACTIVITY_MOTION"
+      }
+    ]
+  }
+}

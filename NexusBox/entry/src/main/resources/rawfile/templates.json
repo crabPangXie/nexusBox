@@ -1,0 +1,1016 @@
+[
+[
+{
+"name": "let",
+"code": "let x = value"
+},
+{
+"name": "var",
+"code": "var x = value"
+},
+{
+"name": "const",
+"code": "const x = value"
+},
+{
+"name": "if",
+"code": "if (condition) {\n\n}"
+},
+{
+"name": "else if",
+"code": "else if (condition) {\n\n}"
+},
+{
+"name": "else",
+"code": "else {\n\n}"
+},
+{
+"name": "switch",
+"code": "switch (value) {\ncase 1:\n\nbreak;\ndefault:\n\n}"
+},
+{
+"name": "case",
+"code": "case value:\n\nbreak;"
+},
+{
+"name": "for",
+"code": "for (let i = 0; i < arr.length; i++) {\n\n}"
+},
+{
+"name": "forof",
+"code": "for (let item of arr) {\n\n}"
+},
+{
+"name": "while",
+"code": "while (condition) {\n\n}"
+},
+{
+"name": "try",
+"code": "try {\n\n} catch(e) {\n\n}"
+},
+{
+"name": "function",
+"code": "function name() {\n\n}"
+},
+{
+"name": "()=>{}",
+"code": "() => {}"
+},
+{
+"name": "typeof",
+"code": "typeof value"
+},
+{
+"name": "instanceof",
+"code": "value instanceof Type"
+},
+{
+"name": "Number",
+"code": "Number(value)"
+},
+{
+"name": "String",
+"code": "String(value)"
+},
+{
+"name": "Boolean",
+"code": "Boolean(value)"
+},
+{
+"name": "setTimeout",
+"code": "setTimeout(() => {\n\n}, 1000)"
+},
+{
+"name": "setInterval",
+"code": "setInterval(() => {\n\n}, 1000)"
+},
+{
+"name": "clearTimeout",
+"code": "clearTimeout(id)"
+},
+{
+"name": "clearInterval",
+"code": "clearInterval(id)"
+},
+{
+"name": "JSON.parse",
+"code": "JSON.parse(str)"
+},
+{
+"name": "JSON.stringify",
+"code": "JSON.stringify(obj)"
+},
+{
+"name": "console.log",
+"code": "console.log()"
+},
+{
+"name": "console.error",
+"code": "console.error()"
+},
+{
+"name": "console.warn",
+"code": "console.warn()"
+},
+{
+"name": "console.info",
+"code": "console.info()"
+},
+{
+"name": "console.debug",
+"code": "console.debug()"
+},
+{
+"name": "do while",
+"code": "do {\n\n} while (condition)"
+}
+],
+[
+{
+"name": "alert",
+"code": "alert('', () => {\n\n})"
+},
+{
+"name": "confirm",
+"code": "confirm('', (ok) => {\n\n})"
+},
+{
+"name": "prompt",
+"code": "prompt('', (value) => {\n\n})"
+}
+],
+[
+{
+"name": "fillStyle",
+"code": "canvas.fillStyle('#000000')"
+},
+{
+"name": "strokeStyle",
+"code": "canvas.strokeStyle('#000000')"
+},
+{
+"name": "lineWidth",
+"code": "canvas.lineWidth(1)"
+},
+{
+"name": "font",
+"code": "canvas.font('30px HarmonyOSHans-Medium')"
+},
+{
+"name": "textAlign",
+"code": "canvas.textAlign('left')"
+},
+{
+"name": "fillRect",
+"code": "canvas.fillRect(0, 0, 100, 100)"
+},
+{
+"name": "strokeRect",
+"code": "canvas.strokeRect(0, 0, 100, 100)"
+},
+{
+"name": "fillText",
+"code": "canvas.fillText('', 0, 0)"
+},
+{
+"name": "beginPath",
+"code": "canvas.beginPath()"
+},
+{
+"name": "moveTo",
+"code": "canvas.moveTo(0, 0)"
+},
+{
+"name": "lineTo",
+"code": "canvas.lineTo(0, 0)"
+},
+{
+"name": "closePath",
+"code": "canvas.closePath()"
+},
+{
+"name": "stroke",
+"code": "canvas.stroke()"
+},
+{
+"name": "arc",
+"code": "canvas.arc(0, 0, 50, 0, 6.28)"
+},
+{
+"name": "rect",
+"code": "canvas.rect(0, 0, 100, 100)"
+},
+{
+"name": "clear",
+"code": "canvas.clear()"
+}
+],
+[
+{
+"name": "abs",
+"code": "Math.abs(x)"
+},
+{
+"name": "max",
+"code": "Math.max(a, b)"
+},
+{
+"name": "min",
+"code": "Math.min(a, b)"
+},
+{
+"name": "floor",
+"code": "Math.floor(x)"
+},
+{
+"name": "ceil",
+"code": "Math.ceil(x)"
+},
+{
+"name": "round",
+"code": "Math.round(x)"
+},
+{
+"name": "sign",
+"code": "Math.sign(x)"
+},
+{
+"name": "trunc",
+"code": "Math.trunc(x)"
+},
+{
+"name": "sin",
+"code": "Math.sin(x)"
+},
+{
+"name": "cos",
+"code": "Math.cos(x)"
+},
+{
+"name": "tan",
+"code": "Math.tan(x)"
+},
+{
+"name": "sqrt",
+"code": "Math.sqrt(x)"
+},
+{
+"name": "pow",
+"code": "Math.pow(x, y)"
+},
+{
+"name": "random",
+"code": "Math.random()"
+},
+{
+"name": "PI",
+"code": "Math.PI"
+},
+{
+"name": "log",
+"code": "Math.log(x)"
+},
+{
+"name": "exp",
+"code": "Math.exp(x)"
+},
+{
+"name": "E",
+"code": "Math.E"
+},
+{
+"name": "acos",
+"code": "Math.acos(x)"
+},
+{
+"name": "asin",
+"code": "Math.asin(x)"
+},
+{
+"name": "atan",
+"code": "Math.atan(x)"
+},
+{
+"name": "atan2",
+"code": "Math.atan2(y, x)"
+},
+{
+"name": "log2",
+"code": "Math.log2(x)"
+},
+{
+"name": "log10",
+"code": "Math.log10(x)"
+},
+{
+"name": "cbrt",
+"code": "Math.cbrt(x)"
+},
+{
+"name": "hypot",
+"code": "Math.hypot(a, b)"
+},
+{
+"name": "fround",
+"code": "Math.fround(x)"
+},
+{
+"name": "imul",
+"code": "Math.imul(a, b)"
+},
+{
+"name": "clz32",
+"code": "Math.clz32(x)"
+}
+],
+[
+{
+"name": "new Date",
+"code": "new Date()"
+},
+{
+"name": "now",
+"code": "Date.now()"
+},
+{
+"name": "getTime",
+"code": "date.getTime()"
+},
+{
+"name": "getFullYear",
+"code": "date.getFullYear()"
+},
+{
+"name": "getMonth",
+"code": "date.getMonth()"
+},
+{
+"name": "getDate",
+"code": "date.getDate()"
+},
+{
+"name": "getDay",
+"code": "date.getDay()"
+},
+{
+"name": "getHours",
+"code": "date.getHours()"
+},
+{
+"name": "getMinutes",
+"code": "date.getMinutes()"
+},
+{
+"name": "getSeconds",
+"code": "date.getSeconds()"
+},
+{
+"name": "toLocaleString",
+"code": "date.toLocaleString()"
+},
+{
+"name": "toISOString",
+"code": "date.toISOString()"
+},
+{
+"name": "getMilliseconds",
+"code": "date.getMilliseconds()"
+},
+{
+"name": "getTimezoneOffset",
+"code": "date.getTimezoneOffset()"
+},
+{
+"name": "setTime",
+"code": "date.setTime(ms)"
+},
+{
+"name": "setFullYear",
+"code": "date.setFullYear(year)"
+},
+{
+"name": "setMonth",
+"code": "date.setMonth(month)"
+},
+{
+"name": "setDate",
+"code": "date.setDate(day)"
+},
+{
+"name": "setHours",
+"code": "date.setHours(hours)"
+},
+{
+"name": "setMinutes",
+"code": "date.setMinutes(minutes)"
+},
+{
+"name": "setSeconds",
+"code": "date.setSeconds(seconds)"
+},
+{
+"name": "setMilliseconds",
+"code": "date.setMilliseconds(ms)"
+},
+{
+"name": "toDateString",
+"code": "date.toDateString()"
+},
+{
+"name": "toTimeString",
+"code": "date.toTimeString()"
+},
+{
+"name": "toUTCString",
+"code": "date.toUTCString()"
+},
+{
+"name": "toJSON",
+"code": "date.toJSON()"
+},
+{
+"name": "toLocaleDateString",
+"code": "date.toLocaleDateString()"
+},
+{
+"name": "toLocaleTimeString",
+"code": "date.toLocaleTimeString()"
+},
+{
+"name": "parse",
+"code": "Date.parse(str)"
+},
+{
+"name": "UTC",
+"code": "Date.UTC(year, month, day)"
+},
+{
+"name": "new Date(ms)",
+"code": "new Date(ms)"
+},
+{
+"name": "new Date(y,m,d)",
+"code": "new Date(year, month, day)"
+}
+],
+[
+{
+"name": "length",
+"code": "str.length"
+},
+{
+"name": "slice",
+"code": "str.slice(start, end)"
+},
+{
+"name": "substring",
+"code": "str.substring(start, end)"
+},
+{
+"name": "substr",
+"code": "str.substr(start, length)"
+},
+{
+"name": "split",
+"code": "str.split(separator)"
+},
+{
+"name": "trim",
+"code": "str.trim()"
+},
+{
+"name": "toUpperCase",
+"code": "str.toUpperCase()"
+},
+{
+"name": "toLowerCase",
+"code": "str.toLowerCase()"
+},
+{
+"name": "charAt",
+"code": "str.charAt(index)"
+},
+{
+"name": "charCodeAt",
+"code": "str.charCodeAt(index)"
+},
+{
+"name": "indexOf",
+"code": "str.indexOf(search)"
+},
+{
+"name": "lastIndexOf",
+"code": "str.lastIndexOf(search)"
+},
+{
+"name": "concat",
+"code": "str.concat(str2)"
+},
+{
+"name": "padStart",
+"code": "str.padStart(len, pad)"
+},
+{
+"name": "padEnd",
+"code": "str.padEnd(len, pad)"
+},
+{
+"name": "repeat",
+"code": "str.repeat(count)"
+},
+{
+"name": "includes",
+"code": "str.includes(search)"
+},
+{
+"name": "startsWith",
+"code": "str.startsWith(search)"
+},
+{
+"name": "endsWith",
+"code": "str.endsWith(search)"
+},
+{
+"name": "match",
+"code": "str.match(regexp)"
+},
+{
+"name": "search",
+"code": "str.search(regexp)"
+}
+],
+[
+{
+"name": "parseInt",
+"code": "parseInt(str)"
+},
+{
+"name": "parseFloat",
+"code": "parseFloat(str)"
+},
+{
+"name": "toString",
+"code": "num.toString(radix)"
+},
+{
+"name": "toFixed",
+"code": "num.toFixed(digits)"
+},
+{
+"name": "toPrecision",
+"code": "num.toPrecision(digits)"
+}
+],
+[
+{
+"name": "length",
+"code": "arr.length"
+},
+{
+"name": "push",
+"code": "arr.push(item)"
+},
+{
+"name": "pop",
+"code": "arr.pop()"
+},
+{
+"name": "shift",
+"code": "arr.shift()"
+},
+{
+"name": "unshift",
+"code": "arr.unshift(item)"
+},
+{
+"name": "forEach",
+"code": "arr.forEach((item, index) => {\n\n})"
+},
+{
+"name": "map",
+"code": "arr.map((item, index) => {\n\n})"
+},
+{
+"name": "filter",
+"code": "arr.filter((item) => {\n\n})"
+},
+{
+"name": "reduce",
+"code": "arr.reduce((acc, item) => {\n\n}, initial)"
+},
+{
+"name": "every",
+"code": "arr.every((item) => {\n\n})"
+},
+{
+"name": "some",
+"code": "arr.some((item) => {\n\n})"
+},
+{
+"name": "slice",
+"code": "arr.slice(start, end)"
+},
+{
+"name": "splice",
+"code": "arr.splice(index, count)"
+},
+{
+"name": "concat",
+"code": "arr.concat(arr2)"
+},
+{
+"name": "join",
+"code": "arr.join(separator)"
+},
+{
+"name": "indexOf",
+"code": "arr.indexOf(item)"
+},
+{
+"name": "reverse",
+"code": "arr.reverse()"
+},
+{
+"name": "sort",
+"code": "arr.sort()"
+},
+{
+"name": "find",
+"code": "arr.find((item) => {\n\n})"
+},
+{
+"name": "findIndex",
+"code": "arr.findIndex((item) => {\n\n})"
+},
+{
+"name": "fill",
+"code": "arr.fill(value)"
+},
+{
+"name": "includes",
+"code": "arr.includes(item)"
+},
+{
+"name": "toString",
+"code": "arr.toString()"
+},
+{
+"name": "isArray",
+"code": "Array.isArray(value)"
+}
+],
+[
+{
+"name": "keys",
+"code": "Object.keys(obj)"
+},
+{
+"name": "freeze",
+"code": "Object.freeze(obj)"
+},
+{
+"name": "seal",
+"code": "Object.seal(obj)"
+},
+{
+"name": "hasOwnProperty",
+"code": "obj.hasOwnProperty(key)"
+},
+{
+"name": "assign",
+"code": "Object.assign(target, source)"
+},
+{
+"name": "fromEntries",
+"code": "Object.fromEntries(entries)"
+},
+{
+"name": "is",
+"code": "Object.is(a, b)"
+}
+],
+[
+{
+"name": "readText",
+"code": "File.readText({\nuri: 'internal://app/',\nsuccess: (data) => {\n\n}\n})"
+},
+{
+"name": "writeText",
+"code": "File.writeText({\nuri: 'internal://app/',\ntext: '',\nappend: false,\nsuccess: () => {\n\n}\n})"
+},
+{
+"name": "list",
+"code": "File.list({\nuri: 'internal://app/',\nsuccess: (data) => {\n\n}\n})"
+},
+{
+"name": "get",
+"code": "File.get({\nuri: 'internal://app/',\nsuccess: (data) => {\n\n}\n})"
+},
+{
+"name": "delete",
+"code": "File.delete({\nuri: 'internal://app/',\nsuccess: () => {\n\n}\n})"
+},
+{
+"name": "mkdir",
+"code": "File.mkdir({\nuri: 'internal://app/',\nsuccess: () => {\n\n}\n})"
+},
+{
+"name": "access",
+"code": "File.access({\nuri: 'internal://app/',\nsuccess: () => {\n\n}\n})"
+},
+{
+"name": "move",
+"code": "File.move({\nsrcUri: 'internal://app/',\ndstUri: 'internal://app/',\nsuccess: () => {\n\n}\n})"
+},
+{
+"name": "copy",
+"code": "File.copy({\nsrcUri: 'internal://app/',\ndstUri: 'internal://app/',\nsuccess: () => {\n\n}\n})"
+},
+{
+"name": "readArrayBuffer",
+"code": "File.readArrayBuffer({\nuri: 'internal://app/',\nsuccess: (data) => {\n\n}\n})"
+},
+{
+"name": "writeArrayBuffer",
+"code": "File.writeArrayBuffer({\nuri: '',\nbuffer: new Uint8Array([]),\nsuccess: () => {\n\n}\n})"
+}
+],
+[
+{
+"name": "get",
+"code": "Storage.get({\nkey: '',\ndefault: '',\nsuccess: (data) => {\n\n}\n})"
+},
+{
+"name": "set",
+"code": "Storage.set({\nkey: '',\nvalue: '',\nsuccess: () => {\n\n}\n})"
+},
+{
+"name": "delete",
+"code": "Storage.delete({\nkey: '',\nsuccess: () => {\n\n}\n})"
+},
+{
+"name": "clear",
+"code": "Storage.clear({\nsuccess: () => {\n\n}\n})"
+}
+],
+[
+{
+"name": "accelerometer",
+"code": "Sensor.subscribeAccelerometer({\ninterval: 'normal',\nsuccess: (data) => {\n\n}\n})"
+},
+{
+"name": "compass",
+"code": "Sensor.subscribeCompass({\nsuccess: (data) => {\n\n}\n})"
+},
+{
+"name": "proximity",
+"code": "Sensor.subscribeProximity({\nsuccess: (data) => {\n\n}\n})"
+},
+{
+"name": "light",
+"code": "Sensor.subscribeLight({\nsuccess: (data) => {\n\n}\n})"
+},
+{
+"name": "stepCounter",
+"code": "Sensor.subscribeStepCounter({\nsuccess: (data) => {\n\n}\n})"
+},
+{
+"name": "barometer",
+"code": "Sensor.subscribeBarometer({\nsuccess: (data) => {\n\n}\n})"
+},
+{
+"name": "heartRate",
+"code": "Sensor.subscribeHeartRate({\nsuccess: (data) => {\n\n}\n})"
+},
+{
+"name": "onBodyState",
+"code": "Sensor.subscribeOnBodyState({\nsuccess: (data) => {\n\n}\n})"
+},
+{
+"name": "gyroscope",
+"code": "Sensor.subscribeGyroscope({\ninterval: 'normal',\nsuccess: (data) => {\n\n}\n})"
+},
+{
+"name": "orientation",
+"code": "Sensor.subscribeDeviceOrientation({\ninterval: 'normal',\nsuccess: (data) => {\n\n}\n})"
+},
+{
+"name": "unsubAccelerometer",
+"code": "Sensor.unsubscribeAccelerometer()"
+},
+{
+"name": "unsubCompass",
+"code": "Sensor.unsubscribeCompass()"
+},
+{
+"name": "unsubProximity",
+"code": "Sensor.unsubscribeProximity()"
+},
+{
+"name": "unsubLight",
+"code": "Sensor.unsubscribeLight()"
+},
+{
+"name": "unsubStepCounter",
+"code": "Sensor.unsubscribeStepCounter()"
+},
+{
+"name": "unsubBarometer",
+"code": "Sensor.unsubscribeBarometer()"
+},
+{
+"name": "unsubHeartRate",
+"code": "Sensor.unsubscribeHeartRate()"
+},
+{
+"name": "unsubOnBodyState",
+"code": "Sensor.unsubscribeOnBodyState()"
+},
+{
+"name": "unsubGyroscope",
+"code": "Sensor.unsubscribeGyroscope()"
+},
+{
+"name": "unsubOrientation",
+"code": "Sensor.unsubscribeOrientation()"
+}
+],
+[
+{
+"name": "getValue",
+"code": "Brightness.getValue({\nsuccess: (data) => {\n\n}\n})"
+},
+{
+"name": "setValue",
+"code": "Brightness.setValue({\nvalue: 128,\nsuccess: () => {\n\n}\n})"
+},
+{
+"name": "getMode",
+"code": "Brightness.getMode({\nsuccess: (data) => {\n\n}\n})"
+},
+{
+"name": "setMode",
+"code": "Brightness.setMode({\nmode: 0,\nsuccess: () => {\n\n}\n})"
+},
+{
+"name": "setKeepScreenOn",
+"code": "Brightness.setKeepScreenOn({\nkeepScreenOn: true,\nsuccess: () => {\n\n}\n})"
+}
+],
+[
+{
+"name": "getInfo",
+"code": "Device.getInfo({\nsuccess: (data) => {\n\n}\n})"
+}
+],
+[
+{
+"name": "getInfo",
+"code": "App.getInfo()"
+},
+{
+"name": "terminate",
+"code": "App.terminate()"
+},
+{
+"name": "screenOnVisible",
+"code": "App.screenOnVisible({\nvisible: true,\nsuccess: () => {\n\n}\n})"
+}
+],
+[
+{
+"name": "getStatus",
+"code": "Battery.getStatus({\nsuccess: (data) => {\n\n}\n})"
+}
+],
+[
+{
+"name": "getLocale",
+"code": "Configuration.getLocale()"
+}
+],
+[
+{
+"name": "replace",
+"code": "Router.replace({\nuri: '',\nparams: {}\n})"
+}
+],
+[
+{
+"name": "vibrate",
+"code": "Vibrator.vibrate({\nmode: 'short',\nsuccess: () => {\n\n}\n})"
+}
+],
+[
+{
+"name": "play",
+"code": "Audio.play()"
+},
+{
+"name": "pause",
+"code": "Audio.pause()"
+},
+{
+"name": "stop",
+"code": "Audio.stop()"
+},
+{
+"name": "getPlayState",
+"code": "Audio.getPlayState({\nsuccess: (data) => {\nconsole.log('state: ' + data.state);\n}\n})"
+},
+{
+"name": "src",
+"code": "Audio.src = 'internal://app/music/song.mp3'"
+},
+{
+"name": "autoplay",
+"code": "Audio.autoplay = true"
+},
+{
+"name": "loop",
+"code": "Audio.loop = true"
+},
+{
+"name": "volume",
+"code": "Audio.volume = 0.5"
+},
+{
+"name": "muted",
+"code": "Audio.muted = true"
+},
+{
+"name": "currentTime",
+"code": "console.log(Audio.currentTime)"
+},
+{
+"name": "duration",
+"code": "console.log(Audio.duration)"
+},
+{
+"name": "onplay",
+"code": "Audio.onplay = () => {\n\n}"
+},
+{
+"name": "onpause",
+"code": "Audio.onpause = () => {\n\n}"
+},
+{
+"name": "onstop",
+"code": "Audio.onstop = () => {\n\n}"
+},
+{
+"name": "onloadeddata",
+"code": "Audio.onloadeddata = () => {\n\n}"
+},
+{
+"name": "onended",
+"code": "Audio.onended = () => {\n\n}"
+},
+{
+"name": "onerror",
+"code": "Audio.onerror = () => {\n\n}"
+},
+{
+"name": "ontimeupdate",
+"code": "Audio.ontimeupdate = () => {\n\n}"
+}
+],
+[
+{
+"name": "getLocation",
+"code": "Geolocation.getLocation({\ntimeout: 30000,\nsuccess: (data) => {\nconsole.log(data.longitude + ',' + data.latitude);\n}\n})"
+},
+{
+"name": "subscribe",
+"code": "Geolocation.subscribe({\nsuccess: (data) => {\nconsole.log(data.longitude + ',' + data.latitude);\n}\n})"
+},
+{
+"name": "unsubscribe",
+"code": "Geolocation.unsubscribe()"
+},
+{
+"name": "getLocationType",
+"code": "Geolocation.getLocationType({\nsuccess: (data) => {\n\n}\n})"
+}
+],
+[
+{
+"name": "fetch",
+"code": "Fetch.fetch({\nurl: '',\ndata: '',\nheader: {},\nmethod: 'GET',\nresponseType: 'json',\nsuccess: (data) => {\nconsole.log(data.data)\n},\nfail: (data, code) => {\nconsole.log(code)\n},\ncomplete: () => {\n\n}\n})"
+}
+],
+[
+{
+"name": "isScreenLocked",
+"code": "screenLock.isScreenLocked((err, data) => {\nconsole.log(data)\n})"
+},
+{
+"name": "isSecureMode",
+"code": "screenLock.isSecureMode((err, data) => {\nconsole.log(data)\n})"
+},
+{
+"name": "unlockScreen",
+"code": "screenLock.unlockScreen((err) => {\n\n})"
+}
+]
+]

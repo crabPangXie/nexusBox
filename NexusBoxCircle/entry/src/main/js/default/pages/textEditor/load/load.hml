@@ -1,0 +1,5 @@
+<div class="container">
+    <image-animator style="width: 80px;height: 80px" images="{{aniArr}}" duration="1100"></image-animator>
+    <text class="name">{{name}}</text>
+    <text class="load_text">正在加载{{progress}}%</text>
+</div>

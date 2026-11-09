@@ -1,0 +1,83 @@
+<stack class="container" on:swipe="close">
+    <image style="width: 466px;height: 480px;" src="/common/device/bgd.png"></image>
+    <list class="list" ref="list">
+        <list-item class="item_title">
+            <text style="font-family: {{font}};">阅读设置</text>
+        </list-item>
+        <list-item class="previewer" style="background-color: {{style.bgdColor}};padding-top: {{slideRead?15:0}};padding-bottom: {{slideRead?15:0}};">
+            <text show="{{slideRead}}" class="previewer_text previewer_aniSlider" style="color: {{style.color}};font-size: {{style.size}};font-family: {{style.font}};">{{previewTexts}}</text>
+            <text show="{{!slideRead}}" class="previewer_text" style="color: {{style.color}};font-size: {{style.size}};font-family: {{style.font}};">{{previewTexts}}</text>
+            <div show="{{!slideRead}}" class="container" style="border-radius: 40px;background-color: #0d000000;margin-top: -180px;"></div>
+            <div show="{{!slideRead}}" class="previewer_text previewer_ani" style="padding: 0;">
+                <text show="{{!slideRead}}" class="previewer_text" style="background-color: {{style.bgdColor}};color: {{style.color}};font-size: {{style.size}};font-family: {{style.font}};">{{previewTexts}}</text>
+            </div>
+        </list-item>
+        <list-item class="item_title" style="height: 60px;">
+            <text>文字大小</text>
+        </list-item>
+        <list-item class="item_card">
+            <input class="list_btn" value="-" on:click="changeSize(-1)" on:longpress="pressSize(-1)" on:touchend="releaseSize"></input>
+            <text class="list_value">{{style.size}}px</text>
+            <input class="list_btn" value="+" on:click="changeSize(1)" on:longpress="pressSize(1)" on:touchend="releaseSize"></input>
+        </list-item>
+        <list-item class="item_title" style="height: 60px;" if="{{api>11}}">
+            <text>字体设置</text>
+        </list-item>
+        <list-item class="item_card" style="height: 100px;" if="{{api>11}}">
+            <stack style="height: 100px;width: 400px;">
+                <stack class="turnPage_container" style="left: {{fontAni*200}};">
+                    <stack class="turnPage" style="left: {{-40*fontAni}};"></stack>
+                </stack>
+                <text class="turnPage_value" on:click="changeFont(0)">常规</text>
+                <text class="turnPage_value" style="left: 200px;" on:click="changeFont(1)">粗体</text>
+            </stack>
+        </list-item>
+        <list-item class="item_title" style="height: 60px;">
+            <text>阅读主题</text>
+        </list-item>
+        <list-item class="item_card" style="background-color: transparent;height: 85px;">
+            <swiper grab:swipe="grabTouch" on:change="changeTheme" class="list_swiper" loop="true" index="{{styleIdx}}">
+                <div class="theme_container" for="{{styleList}}">
+                    <text class="theme" style="background-color: {{$item.b}};color: {{$item.c}};border-color: {{$idx==styleIdx?'#5e99ff':'#00000000'}};">
+                        {{$item.n}}
+                    </text>
+                </div>
+            </swiper>
+        </list-item>
+        <list-item class="item_title" style="height: 60px;">
+            <text>阅读方式</text>
+        </list-item>
+        <list-item class="item_card" style="height: 100px;">
+            <stack style="height: 100px;width: 400px;">
+                <stack class="turnPage_container" style="left: {{slideReadAni*200}};">
+                    <stack class="turnPage" style="left: {{-40*slideReadAni}};"></stack>
+                </stack>
+                <text class="turnPage_value" on:click="changeSlideRead(false)">翻页</text>
+                <text class="turnPage_value" style="left: 200px;" on:click="changeSlideRead(true)">滑动</text>
+            </stack>
+        </list-item>
+        <list-item class="item_title" style="height: 60px;">
+            <text>自动翻页速度</text>
+        </list-item>
+        <list-item class="item_card" style="height: 100px;">
+            <stack class="container">
+                <stack class="auto_container" style="left: {{133*autoSpeedAni}};">
+                    <div class="auto" style="left: {{-40*autoSpeedAni}};"></div>
+                </stack>
+                <text class="auto_value" on:click="changeAuto(0)">慢</text>
+                <text class="auto_value" style="left: 133px;" on:click="changeAuto(1)">中</text>
+                <text class="auto_value" style="left: 266px;" on:click="changeAuto(2)">快</text>
+            </stack>
+        </list-item>
+        <list-item class="item_title" style="height: 60px;">
+            <text>自动翻页间隔</text>
+        </list-item>
+        <list-item class="item_card">
+            <input class="list_btn" value="-" on:click="changeAutoDuration(-1)" on:longpress="pressAutoDuration(-1)" on:touchend="releaseAutoDuration"></input>
+            <text class="list_value">{{autoDuration}}秒</text>
+            <input class="list_btn" value="+" on:click="changeAutoDuration(1)" on:longpress="pressAutoDuration(1)" on:touchend="releaseAutoDuration"></input>
+        </list-item>
+        <list-item style="height: 100px;"></list-item>
+    </list>
+    <input class="bar_back" grab:click="close"></input>
+</stack>

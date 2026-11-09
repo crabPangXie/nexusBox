@@ -1,0 +1,17 @@
+<stack class="container" on:swipe="close">
+    <image style="width: 466px;height: 480px;" src="/common/device/bgd.png"></image>
+    <slider max="20" min="0" value="{{value/5}}" ref="slider" grab:change="listenSlider"></slider>
+    <div class="bar bar_container" grab:touchstart="touchStart" grab:touchmove="touchMove" grab:touchend="touchEnd">
+        <div class="bar" style="height: {{346*value/100}};">
+            <image class="bar" src="/common/setting/bar.png"></image>
+        </div>
+    </div>
+    <div class="bar icon_container">
+        <image class="icon" src="/common/setting/{{target}}2.png"></image>
+        <image class="icon" src="/common/setting/{{target}}{{(target!='volume'||value>0)*1}}.png"></image>
+    </div>
+    <input class="bar_back" grab:click="close"></input>
+    <div class="bar_title">
+        <text style="font-family: {{font}};">{{target=='volume'?'音量':'亮度'}}调节</text>
+    </div>
+</stack>

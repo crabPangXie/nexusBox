@@ -1,0 +1,39 @@
+<stack class="container" style="background-color: #EDEDED;" on:swipe="close">
+
+    <list class="list" ref='list' on:scrollbottom="load">
+        <list-item style="height: 60px;"></list-item>
+        <list-item class="list_item" for="{{list}}" on:click="jumpToList($idx)">
+            <image class="list_icon" src="/common/file/{{$item.type?'dir':'text'}}.png"></image>
+            <marquee class="list_text">{{$item.name}}</marquee>
+        </list-item>
+        <list-item style="height: 60px;">
+            <text show="{{fileArr.length>list.length}}" class="container">↓继续加载</text>
+        </list-item>
+    </list>
+
+
+    <div class="container" if="{{search_finished&&!foundNum}}">
+        <image src="/common/empty.png" class="empty_img"></image>
+        <text style="color: #202020">未找到对应内容</text>
+        <input value="重新搜索" class="empty_btn" on:click="search"></input>
+    </div>
+
+    <div if="{{!search_finished}}"  class="planet_div">
+        <image-animator style="width: 80px;height: 80px" images="{{aniArr}}" duration="800"></image-animator>
+        <text class="planet_text">查找:{{nowUri}}</text>
+        <text class="planet_text">找到{{foundNum}}项文件</text>
+    </div>
+
+    <image style="width: 100%;height: 50px;top: 90px;" src="/common/shadow_light.png"></image>
+    <text class="bar_tips" if="{{search_finished&&!!foundNum}}">找到{{foundNum}}项文件</text>
+    <input class="bar_back" grab:click="close"></input>
+    <image on:click="search" class="bar" src="/common/file/searchBar.png"></image>
+    <marquee class="bar_key">{{keyWord}}</marquee>
+
+    <div  class="container" show='{{showJump}}' style="background-color: #EDEDED;">
+        <image-animator style="width: 80px;height: 80px" images="{{aniArr}}" duration="800"></image-animator>
+        <text style="color: black;">正在跳转</text>
+    </div>
+
+    <text class="msg" if="{{!!msg.content}}" grab:click="closeMsg">{{ msg.content }}</text>
+</stack>

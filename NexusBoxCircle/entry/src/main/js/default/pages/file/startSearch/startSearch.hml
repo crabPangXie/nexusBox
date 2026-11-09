@@ -1,0 +1,10 @@
+<stack class="container" style="background-color: #EDEDED;" on:swipe="close">
+    <text class="bar_title" style="font-size: 38px;font-family: {{font}};">全局搜索</text>
+    <image class="input_img" src="/common/file/search.png"></image>
+    <div class="input_div">
+        <text class="input_text">{{text}}</text>
+        <div style="opacity: {{showBar?1:0}};" class="input_bar"></div>
+    </div>
+    <image on:click="search" class="search_bar" src="/common/file/searchBar.png"></image>
+    <text class="search_text">输入查找内容</text>
+</stack>

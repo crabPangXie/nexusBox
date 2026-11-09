@@ -1,0 +1,60 @@
+.container {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    color: #cc000000;
+    font-size: 24px;
+    text-align: center;
+    text-overflow: ellipsis;
+}
+.ani{
+    background-color: white;
+    animation-name: bgd;
+    animation-duration: 1000ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+@keyframes bgd{
+    from{
+        opacity: 1;
+    }to{
+        opacity: 0;
+    }
+}
+.bgd{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.list{
+    width: 430px;
+    height: 1130px;
+}
+.linkCard{
+    width: 260px;
+    height: 60px;
+    left: 103px;
+    top: 376px;
+}
+.linkStack{
+    width: 256px;
+    height: 56px;
+    left: 105px;
+    top: 378px;
+}
+.linkProgress{
+    height: 56px;
+    border-radius: 28px;
+    background-color: #800088ff;
+}
+.msg{
+    width:320px;
+    height: 70px;
+    left: 73px;
+    top: 350px;
+    background-color: #f7383838;
+    border-radius: 35px;
+    text-align: center;
+    font-size: 24px;
+}

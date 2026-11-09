@@ -1,0 +1,17 @@
+<stack class="container" on:swipe="close">
+    <image style="width: 466px;height: 480px;" src="/common/device/bgd.png"></image>
+    <list class="list" ref="list">
+        <list-item class="item_title">
+            <text style="font-family: {{font}};">文件管理</text>
+        </list-item>
+        <list-item class="item_card">
+            <text class="item_name">闪传分享</text>
+            <switch class="item_switch" checked="{{shareAuto}}" on:change="onShareAuto"></switch>
+        </list-item>
+        <list-item style="width:100%;height: 240px;justify-content: flex-start;align-items: flex-start;">
+            <text style="width:100%;padding: 0px 20px;color: #b3ffffff;font-size: 24px;">开启后，手表在文本分享界面，通过二维码向手机传输文件时，手机完成单张扫描后，将自动控制手表翻页，达成高效的自动传输效果</text>
+        </list-item>
+        <list-item style="height: 100px;"></list-item>
+    </list>
+    <input class="bar_back" grab:click="close"></input>
+</stack>

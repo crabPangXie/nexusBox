@@ -1,0 +1,54 @@
+<stack class="container" on:swipe="turnPage" on:click="clickPage" style="background-color: {{style.bgdColor}}">
+    <text class="text" style="font-family: {{style.font}};font-size: {{style.size}};color: {{style.color}};line-height:{{style.size*1.3}};">
+        {{lowerText}}
+    </text>
+    <div class="timeDiv">
+        <div class="batteryDiv">
+            <image style="width: 24px;height: 24px;" src="/common/text/battery{{(styleIdx>3)*1}}.png"></image>
+            <text class="batteryText" style="color: {{style.color}};">{{battery}}%</text>
+        </div>
+        <text class="batteryText" style="color: {{style.color}};">{{timeText}}</text>
+    </div>
+    <stack class="container  ani" style="background-color: {{style.bgdColor}};left: {{ani_show?0:-408}};animation-name: {{ani_name}};">
+        <text class="text" style="font-size: {{style.size}};color: {{style.color}};font-family: {{style.font}};line-height:{{style.size*1.3}};">
+            {{upperText}}
+        </text>
+        <div class="timeDiv">
+            <div class="batteryDiv">
+                <image style="width: 24px;height: 24px;" src="/common/text/battery{{(styleIdx>3)*1}}.png"></image>
+                <text class="batteryText" style="color: {{style.color}};">{{battery}}%</text>
+            </div>
+            <text class="batteryText" style="color: {{style.color}};">{{timeText}}</text>
+        </div>
+    </stack>
+
+    <div class="topBar" grab:click="close" show="{{barIf}}" style="top:{{15+(barShow?-85:0)}};animation-name:{{barShow?'topDown':'topUp'}};">
+        <image class="topBar_left" src="/common/text/left.png"></image>
+        <marquee class="topBar_title">{{title}}</marquee>
+    </div>
+    <div class="menu" grab:click="grabTouch" show="{{barIf}}" style="top:{{325+(barShow?155:0)}};animation-name:{{barShow?'menuUp':'menuDown'}};">
+        <div class="bottomBar">
+            <image grab:click="changTarget" style="width: 55px;height: 100%;" src="/common/text/{{target?'light':'page'}}.png"></image>
+            <div class="bottomBar_progressBg">
+                <div class="bottomBar_progress" style="width: {{40+210*setArr[target]/100}};">
+                    <div class="bottomBar_dot"></div>
+                </div>
+            </div>
+            <div class="bottomBar_btn">
+                <text class="bottomBar_text">{{setArr[target]}}%</text>
+            </div>
+        </div>
+        <div class="menu_bottom">
+            <div class="menu_auto" grab:click="clickAuto">
+                <image class="container" src="/common/text/{{auto?'auto':'unAuto'}}.png"></image>
+                <text class="menu_text">自动翻页-{{autoDuration}}秒</text>
+            </div>
+            <input class="menu_setting" grab:click="setting"></input>
+        </div>
+    </div>
+    <slider  style="top: {{barShow?340:-40}};" class="slider" ref="slider" grab:click="grabTouch" grab:swipe="grabTouch" grab:change="listenSlider" max="{{barShow?50:(pageTurning?0:2)}}" value="{{barShow?focusValue/2:focusValue}}" min="0"></slider>
+    <text class="msg" show="{{!!msg.content}}" grab:click="closeMsg">{{ msg.content }}</text>
+    <stack class="container" show="{{showPopup}}" grab:click="confirmPopup" grab:swipe="grabTouch">
+        <image class="popup" src="/common/popup.png"></image>
+    </stack>
+</stack>

@@ -1,0 +1,32 @@
+<stack class="container" on:swipe="close">
+    <image style="width: 466px;height: 480px;" src="/common/device/bgd.png"></image>
+    <list class="list" ref="list">
+        <list-item class="item_title">
+            <text style="font-size: 38px;font-family: {{font}};">设备参数</text>
+        </list-item>
+        <list-item class="card"  on:click="jumpToBench">
+            <text>JS引擎测试</text>
+            <image style="width: 20px;height: 40px;" src="/common/arrow_white.png"></image>
+        </list-item>
+        <list-item class="card" on:click="jumpToSensor">
+            <text>传感器测试</text>
+            <image style="width: 20px;height: 40px;" src="/common/arrow_white.png"></image>
+        </list-item>
+        <list-item class="item_title" style="height: 80px;">
+            <text>详细参数</text>
+        </list-item>
+        <list-item class="item" for="{{list}}" on:longpress="copyInfo($idx)">
+            <text class="item_name">{{$item.name}}</text>
+            <text class="item_value">{{$item.value}}</text>
+        </list-item>
+        <list-item class="item_title" style="height: 60px;align-items: center;">
+            <image class="tips" src="/common/tips.png"></image>
+            <text style="font-size: 24px;color: #99ffffff;">长按卡片可复制</text>
+        </list-item>
+        <list-item style="height: 80px;width: 100%;"></list-item>
+    </list>
+    <div  show="{{openIdx>=0&&openAni<1}}" class="container" grab:click="grabTouch" style="background-color: #000000;opacity: {{1-openAni}}">
+        <image style="width: {{120+120*openAni}};height: {{120+120*openAni}};" src="/common/icons/1.png"></image>
+    </div>
+    <text class="msg" if="{{!!msg.content}}" grab:click="closeMsg">{{ msg.content }}</text>
+</stack>

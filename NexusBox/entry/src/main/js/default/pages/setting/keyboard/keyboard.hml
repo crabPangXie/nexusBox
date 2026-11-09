@@ -1,0 +1,33 @@
+<stack class="container" on:swipe="close">
+    <swiper class="container" vertical="true" loop="false" ref="swiper">
+        <stack class="container">
+            <div class="bar_div">
+                <text class="font" style="font-family: {{font}};">输入法</text>
+            </div>
+            <div class="intro">
+                <text class="name" style="font-family: {{font}};">螃蟹输入法\nv1.1.5</text>
+                <div class="title_rule"></div>
+                <div class="typing">
+                    <text class="feature">{{text}}</text>
+                    <div class="cursor" style="opacity: {{showBar?1:0}};"></div>
+                </div>
+                <text class="author">作者：螃蟹kuN</text>
+            </div>
+            <div class="next_bar"></div>
+        </stack>
+        <stack class="container">
+            <div class="bar_div">
+                <text class="font" style="font-family: {{font}};">开源代码许可</text>
+            </div>
+            <div class="license">
+                <div class="qr_card">
+                    <qrcode class="qr" value="https://github.com/crabPangXie/crabKeyboard"></qrcode>
+                </div>
+                <text class="license_type">类型:MIT License</text>
+            </div>
+        </stack>
+    </swiper>
+
+    <input class="bar_back" grab:click="close"></input>
+    
+</stack>

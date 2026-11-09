@@ -1,0 +1,22 @@
+<stack class="container" on:swipe="close">
+    <image style="width: 466px;height: 480px;" src="/common/device/bgd.png"></image>
+    <list class="list" ref="list">
+        <list-item class="item_title">
+            <text style="font-size: 38px;font-family: {{font}};">代码编辑器</text>
+        </list-item>
+        <list-item class="previewer" style="background-color:#050505">
+            <text class="container" style="color: {{fontColor}};padding: 10px;">The quick brown fox jumps over the lazy dog.</text>
+        </list-item>
+        <list-item class="item_title" style="height: 60px;">
+            <text>字体颜色</text>
+        </list-item>
+        <list-item class="color_card">
+            <div class="color_item" for="{{fontList}}">
+                <div class="color" on:click="changeColor($idx)" style="background-color: {{$item}};border-color: {{fontIdx==$idx?'#5498E3':'#00000000'}};"></div>
+            </div>
+        </list-item>
+        <list-item style="height: 100px;"></list-item>
+    </list>
+    <text class="msg" if="{{ msg.if }}" on:click="closeMsg" >{{ msg.content }}</text>
+
+</stack>

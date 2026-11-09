@@ -1,0 +1,25 @@
+<stack class="container" on:touchstart="touchStart" on:touchmove="touchMove" on:touchend="touchEnd">
+    <slider ref="list" max="{{offsetX==0?100:0}}" min="0" value="{{offsetX==0?focusValue:0}}" on:change="listenList"></slider>
+
+<!--    底层背景-->
+    <image class="bgd" src="{{wallpaper}}wallpaper.bin" style="width: {{1.4*width+0.4*offsetX}}; height: {{1.4*width+0.4*offsetX}}; left: {{-0.2*(offsetX+width)}}; top: {{-0.2*(offsetX+width)}}"></image>
+<!--    中层连接状态-->
+    <image class="linkCard" src="{{wallpaper}}card{{connect*1}}.bin" style="top:{{466+90*offsetX/width}}"></image>
+    <image class="linkCard" src="{{wallpaper}}card2.bin" show="{{offsetX==-width&&!!fileName}}" style="opacity: {{fileDisappear?fileAni:1}}"></image>
+    <stack class="linkStack" show="{{offsetX==-width&&!!fileName}}" style="opacity: {{fileDisappear?fileAni:1}};">
+        <div class="linkProgress" style="width: {{fileAni*200+56}}"></div>
+        <text class="container">{{fileName}} 接收中</text>
+    </stack>
+<!--    上层列表-->
+    <image class="bgd" style="width: {{1.4*width+0.4*offsetX}}; height: {{1.4*width+0.4*offsetX}}; left: {{-0.2*(offsetX+width)}}; top: {{-0.2*(offsetX+width)}};opacity: {{1+offsetX/width}};" src="{{wallpaper}}wallpaperBlur.png"></image>
+    <image style="left: {{offsetX*1.5+(width-316*(offsetY>0?offsetY/550+1:1))/2+exitAni/2}};top: {{offsetY+65+200*startAni}};width: {{316*(offsetY>0?offsetY/550+1:1)}};height: {{78*(offsetY>0?offsetY/550+1:1)}};opacity: {{(1-openAni*2)*(1-startAni*2)*(1-exitAni/exitLength)}};" src="/common/index/title.png"></image>
+    <image class="list" style="left: {{offsetX+18+exitAni/2}};top: {{offsetY+160+320*startAni}};opacity: {{(1-openAni*2)*(1-startAni*2)*(1-exitAni/exitLength)}};" src="/common/index/list.png" on:click="jumpToPage"></image>
+<!--    打开动画-->
+    <div show="{{openIdx>=0&&!!openAni}}" class="container" style="border-radius:300px;background-color: {{['rgba(0,0,0,','rgba(237,237,237,'][(openIdx==0)*1]+openAni+')'}};width: {{60+410*openAni}};height: {{60+410*openAni}};left: {{75*(1-(2*openAni*openAni*openAni-openAni*openAni))-2}};top: {{(202+offsetY+110*openIdx)*(1-openAni)-2}}">
+        <image style="width: {{60+60*openAni}};height: {{60+60*openAni}};" src="/common/icons/{{openIdx}}.png"></image>
+    </div>
+    <text class="msg" if="{{!!msg.content}}" grab:click="closeMsg">{{ msg.content }}</text>
+    <div show="{{showAni}}" class="container ani"></div>
+    <div show="{{!!startAni}}" grab:touchstart="grabTouch" grab:touchmove="grabTouch" grab:touchend="grabTouch" class="container"></div>
+    <div style="background-color: #e6000000;opacity: {{exitAni/exitLength*exitAni/exitLength}};" class="container"></div>
+</stack>

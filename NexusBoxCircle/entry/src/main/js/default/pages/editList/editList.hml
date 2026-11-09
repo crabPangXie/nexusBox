@@ -1,0 +1,19 @@
+<stack class="container" on:swipe="close">
+    <list class="list" ref="list">
+        <list-item style="height: 110px;"></list-item>
+        <list-item class="list_item" for="{{list}}" on:click="choose($idx)">
+            <marquee class="name">{{$item.name}}</marquee>
+            <image class="check" src="/common/{{$item.checked?'':'un'}}check.png"></image>
+        </list-item>
+        <list-item style="height: {{Math.max(110,288-108*list.length)}};"></list-item>
+    </list>
+    <input class="btn" grab:click="handleAll" value="{{chosenNum?(chosenNum==list.length?'取消全选':'已选'+chosenNum+'项'):'全选'}}"></input>
+    <input class="btn delete" grab:click="deleteFile" value="删除"></input>
+
+    <text class="msg" if="{{!!msg.content}}" grab:click="closeMsg">{{ msg.content }}</text>
+
+    <div class="deleting_mask" if="{{deleting}}" grab:click="grabTouch" grab:swipe="grabTouch">
+        <image-animator style="width: 80px;height: 80px" images="{{aniArr}}" duration="1100"></image-animator>
+        <text class="deleting_text">正在删除...</text>
+    </div>
+</stack>

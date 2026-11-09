@@ -1,0 +1,53 @@
+<stack class="container" style="background-color: #080808;" on:swipe="close">
+    <canvas ref="canvas" class="container"></canvas>
+
+    <input class="bar_back" grab:click="close"></input>
+    <div class="bar_title">
+            <text style="font-family: {{font}};">{{runStatus}}</text>
+        <text style="font-size: 24px;color: #808080;">{{runTime}}</text>
+    </div>
+    <image class="bar_tools" grab:click="showTools" src="/common/script/tools.png"></image>
+
+<!--    叠加层（log/alert/confirm 共用）-->
+    <stack class="container" show="{{showLog||confirmShow||alertShow}}" grab:click="hideLog" style="background-color: #26000000;"></stack>
+
+<!--    大弹窗（log + alert 共用）-->
+    <div class="alert" show="{{ifLog}}" grab:swipe="hideLog" style="top: {{100+((showLog||alertShow)?0:380)}};animation-name: {{(showLog||alertShow)?'up':'down'}};">
+        <stack class="alert_bar">
+            <text style="height: 100%;font-size: 38px;left: 20px;font-family: {{font}};">{{['日志','定时器','脚本提示'][logMode]}}{{logMode==0?'('+logArr.length+'/20)':''}}{{logMode==1?'('+timeArr.length+'/10)':''}}</text>
+            <input class="alert_close" on:click="hideLog"></input>
+        </stack>
+        <list class="alert_list" show="{{logMode==0}}" ref="logList">
+            <list-item class="alert_item" style="height: {{$item.lines*38+65}};background-color: {{$idx%2?'#292929':'#404040'}};" for="{{logArr}}">
+                <text class="alert_log" style="height: {{$item.lines*38}};">{{$item.content}}</text>
+                <text class="alert_time">{{$item.time}}</text>
+            </list-item>
+            <list-item style="height: 83px;"></list-item>
+        </list>
+        <list class="alert_list" show="{{logMode==1}}" ref="timerList">
+            <list-item class="alert_item" style="background-color: {{$idx%2?'#292929':'#404040'}};" for="{{timeArr}}" on:click="clearTimerItem($idx)">
+                <text class="alert_log">{{$item.type}}:{{$idx}}</text>
+                <text class="alert_time">{{$item.time}}</text>
+            </list-item>
+            <list-item style="width: 100%;height: 83px;justify-content: center;align-items: center;">
+                <text style="font-size: 24px;color: #555555;">点击卡片关闭定时器</text>
+            </list-item>
+        </list>
+        <list class="alert_list" show="{{logMode==2}}">
+            <list-item class="alert_item" style="height: {{alertLines*38+65}};">
+                <text class="alert_log" style="height: {{alertLines*38}};">{{alertMsg}}</text>
+            </list-item>
+            <list-item style="height: 83px;"></list-item>
+        </list>
+    </div>
+
+<!--    小弹窗（confirm）-->
+    <div class="confirm" show="{{confirmIf}}" style="top: {{160+(confirmShow?0:330)}};animation-name: {{confirmShow?'confirmUp':'confirmDown'}};">
+        <marquee class="confirm_msg">{{confirmMsg}}</marquee>
+        <div class="confirm_row">
+            <input class="confirm_btn" value="拒绝" on:click="confirmCancel"></input>
+            <div style="width: 1px;height: 30px;background-color: #505050;"></div>
+            <input class="confirm_btn" style="color: #3895FF;" value="确定" on:click="confirmOK"></input>
+        </div>
+    </div>
+</stack>

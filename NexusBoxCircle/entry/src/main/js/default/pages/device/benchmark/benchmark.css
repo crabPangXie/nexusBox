@@ -1,0 +1,79 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.list{
+    width: 360px;
+    height: 100%;
+    left: 53px;
+    background-color: transparent;
+}
+.item_title{
+    width: 100%;
+    height: 120px;
+    justify-content: center;
+}
+.item_bench{
+    width: 100%;
+    height: 125px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.item_time{
+    font-size: 24px;
+    margin-top: 15px;
+    color: #b3ffffff;
+}
+.item_list{
+    width: 100%;
+    height: 590px;
+    background-color: #26ffffff;
+    border-radius: 25px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 15px;
+}
+.record{
+    width: 85%;
+    height: 40px;
+    justify-content: space-between;
+}
+.record_score{
+    font-size: 24px;
+    color: #999999;
+}
+.btn{
+    width: 250px;
+    height: 70px;
+    top: 370px;
+    left: 108px;
+    border-radius: 35px;
+    background-color: #093566;
+}
+.progress{
+    height: 70px;
+    border-radius: 35px;
+    background-color: #1783FF;
+}
+.item_note{
+    width: 100%;
+    height: 380px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.note_text{
+    width: 95%;
+    font-size: 24px;
+    color: #838383;
+    text-align: left;
+}

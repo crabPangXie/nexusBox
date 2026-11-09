@@ -1,0 +1,9 @@
+<div class="container">
+    <image-animator style="width: 80px;height: 80px" images="{{aniArr}}" duration="1100"></image-animator>
+    <text class="name">{{name}}</text>
+    <text class="load_text">正在加载{{progress}}%</text>
+    <div class="tips_div">
+        <image class="tips" src="/common/tips.png"></image>
+        <text style="color:#646464;font-size: 24px;">点击行号可直接切行</text>
+    </div>
+</div>

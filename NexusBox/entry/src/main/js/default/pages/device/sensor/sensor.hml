@@ -1,0 +1,37 @@
+<stack class="container" on:swipe="close">
+    <image style="width: 466px;height: 480px;" src="/common/device/bgd.png"></image>
+    <image class="card" src="/common/device/card.png"></image>
+    <stack class="chart">
+        <canvas ref="canvas0" if="{{canvasIf[0]}}" show="{{canvasShow[0]}}" class="chart_canvas"></canvas>
+        <canvas ref="canvas1" if="{{canvasIf[1]}}" show="{{canvasShow[1]}}" class="chart_canvas"></canvas>
+        <canvas ref="canvas2" if="{{canvasIf[2]}}" show="{{canvasShow[2]}}" class="chart_canvas"></canvas>
+        <text class="container" show="{{nameArr.length>0&&nameArr[0]=='value'}}">--</text>
+    </stack>
+
+    <div class="value">
+        <text for="{{valueArr}}" style="font-size: 24px; color: {{colorArr[$idx]}};width: {{Math.floor(100/valueArr.length)+'%'}};">{{nameArr[$idx]}}:{{formatValue($item)}}</text>
+    </div>
+
+    <div class="bar_title">
+        <text class="bar_title_main" style="font-family: {{font}};">传感器测试</text>
+        <text class="bar_subtitle">当前:{{sensorName}}</text>
+    </div>
+    <input class="bar_back bar_select" grab:click="openSelect" style="left: 314px; top: 24px; "></input>
+    <input class="bar_back" grab:click="close" style="left: 24px; top: 24px;"></input>
+
+    <!-- 选择弹窗（键盘剪切板样式）：传感器选择卡片，动画逻辑与键盘一致 -->
+    <stack class="container" show="{{selectShow}}" grab:click="closeDirectly" style="background-color: #26000000;"></stack>
+    <div class="alert" show="{{selectIf}}" grab:swipe="closeSelect" style="top: {{100+(selectShow?0:380)}};animation-name: {{selectShow?'up':'down'}};">
+        <div class="alert_bar">
+            <text style="font-size: 38px;font-family: {{font}};">选择传感器</text>
+            <input class="alert_close" on:click="closeDirectly"></input>
+        </div>
+        <list class="alert_list" ref="list">
+            <list-item class="alert_item" for="{{optionList}}">
+                <text class="alert_shear" on:click="subSensor($item)">{{$item}}</text>
+            </list-item>
+            <list-item style="height: 100px;"></list-item>
+        </list>
+    </div>
+    <text class="msg" if="{{!!msg.content}}" grab:click="closeMsg">{{ msg.content }}</text>
+</stack>

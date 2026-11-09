@@ -1,0 +1,91 @@
+<stack class="container" style="background-color: #EDEDED;" grab:swipe="swipe">
+    <slider ref="file" max="{{fileList.length>0?fileList.length-1:0}}" min="0" value="{{fileIdx}}" on:change="listenList"></slider>
+
+<!--    顶部地址栏-->
+    <image class="bar_bgd" src="/common/file/bar.png"></image>
+    <text if="{{fileMode==1}}" class="bar_uri" style="left: 180px;">当前选中{{chosenArr.length}}项</text>
+    <marquee if="{{!!input_search&&fileMode!=1}}" class="bar_uri">搜索'{{input_search}}'的结果</marquee>
+    <marquee if="{{!input_search&&fileMode!=1}}" class="bar_uri" on:longpress="copyContent(uri||'内部存储','地址')">:{{uri?getMiniUri(uri):'内部存储'}}</marquee>
+<!--    文件列表-->
+    <div class="file_list" on:swipe="swipeList">
+        <div class="file_item" for="{{fileList[fileIdx]}}" on:click="clickItem($idx)" on:longpress="pressItem($idx)" style="background-color: {{chosenArr.indexOf($idx+fileIdx*6)==-1?'#EDEDED':'#98CFFF'}};">
+            <image class="file_icon" src="/common/file/{{$item.type}}.png"></image>
+            <text class="file_name">{{$item.uri}}</text>
+        </div>
+    </div>
+<!--    进度条-->
+    <stack show="{{fileList.length>1}}" style="width: 99.2%;height: 99.2%;left: 0.4%;top: 0.4%;">
+        <progress type="arc" class="progress_circle"></progress>
+        <progress type="arc" class="progress_circle progress_circleBar" percent="100" style="total-angle: {{Math.floor(60/(fileList.length>8?8:fileList.length))}};start-angle: {{60+(60-Math.floor(60/(fileList.length>8?8:fileList.length)))*fileIdx/(fileList.length-1)}};"></progress>
+    </stack>
+<!--    底部工具栏-->
+<!--    多选-->
+    <div class="tool_div" if="{{fileMode==1}}">
+        <input class="tool_btn" on:click="fn_operate" style="margin-top: 8px;background-image:url('/common/file/small/operate.png')"></input>
+        <input class="tool_btn" on:click="fn_details" style="margin-top: 20px;margin-left: 10px;margin-right: 10px;background-image:url('/common/file/small/details.png')"></input>
+        <input class="tool_btn" on:click="resetMode" style="margin-top: 8px;background-image:url('/common/file/small/cancel.png')"></input>
+    </div>
+<!--    复制-->
+    <div class="tool_div" elif="{{fileMode==2}}">
+        <input class="tool_btn" on:click="fn_copy" style="margin-top: 10px;background-image:url('/common/file/small/copy.png')"></input>
+        <input class="tool_btn" on:click="resetMode" style="margin-top: 10px;margin-left: 50px;background-image:url('/common/file/small/cancel.png')"></input>
+    </div>
+<!--    移动-->
+    <div class="tool_div" elif="{{fileMode==3}}">
+        <input class="tool_btn" on:click="fn_move" style="margin-top: 10px;background-image:url('/common/file/small/move.png')"></input>
+        <input class="tool_btn" on:click="resetMode" style="margin-top: 10px;margin-left: 50px;background-image:url('/common/file/small/cancel.png')"></input>
+    </div>
+<!--    默认-->
+    <div class="tool_div" elif="{{fileList.length!=0}}">
+        <input class="tool_btn" on:click="fn_multi" style="background-image:url('/common/file/small/choose.png')"></input>
+        <input class="tool_btn" on:click="fn_sort" style="margin-top: 15px;background-image:url('/common/file/small/sort.png')"></input>
+        <input class="tool_btn" on:click="fn_search" style="margin-top: 15px;background-image:url('/common/file/small/search.png')"></input>
+        <input class="tool_btn" on:click="fn_new" style="background-image:url('/common/file/small/new.png')"></input>
+    </div>
+
+<!--    上层空文件夹弹窗-->
+    <div class="container" if="{{fileList.length==0}}">
+        <image src="/common/empty.png" class="empty_img"></image>
+        <text style="color: #202020">该文件夹为空</text>
+        <input value="返回上一级" class="empty_btn" on:click="backLastDir"></input>
+        <input value="+新建文件(夹)" class="empty_new" on:click="fn_new"></input>
+    </div>
+
+    <div class="container" style="background-color: #1a000000;" show="{{alertShow||taskShow}}" grab:swipe="closeAlert"></div>
+    <div class="alert_box" show="{{alertIf}}" style="top: {{63+(alertShow?0:410)}};animation-name: {{alertShow?'up':'down'}};" grab:swipe="closeAlert">
+        <marquee class="alert_title">{{showSelectBox||'详情'}}</marquee>
+        <list class="alert_list" show="{{!!showSelectBox}}" ref="select">
+            <list-item class="alert_item" for="{{selectList}}" on:click="fn($item.fn)">
+                <text style="color: {{$item.color?$item.color:'#202020'}}">{{$item.fn}}</text>
+                <div class="alert_line" style="opacity: {{($idx!=selectList.length-1)*1}};"></div>
+            </list-item>
+        </list>
+        <list class="alert_list" show="{{!!showToastBox}}" ref="toast">
+            <list-item class="alert_item" for="{{toastList}}" on:longpress="copyContent($item.c,$item.t)">
+                <div class="alert_text">
+                    <text style="color: black;width: 100px;margin-left: 35px;">{{$item.t}}</text>
+                    <marquee class="alert_content">{{$item.c}}</marquee>
+                </div>
+                <div class="alert_line" style="opacity: {{($idx!=toastList.length-1)*1}};"></div>
+            </list-item>
+            <list-item class="alert_item" style="height: 50px;flex-direction: row;justify-content: center;align-items: center;">
+                <image class="tips" src="/common/tips_black.png"></image>
+                <text style="color: #838383;font-size: 24px;">长按条目可复制</text>
+            </list-item>
+        </list>
+    </div>
+
+    <div class="task_box" show="{{taskShow}}" grab:swipe="grabTouch" grab:click="grabTouch">
+        <stack class="task_circle">
+            <stack style="height: 80px;width: {{80*doneCount/totalCount}}">
+                <div class="task_progress"></div>
+            </stack>
+            <text class="task_num">{{Math.round(doneCount/totalCount*100)}}%</text>
+        </stack>
+        <text class="task_text" style="color: black;margin-top: 7px;margin-bottom: 2px;">正在{{showTaskBox}}({{doneCount}}/{{totalCount}})</text>
+        <text class="task_text">{{nowUri}}</text>
+        <text class="task_text">共用时{{allTime}}</text>
+    </div>
+
+    <text class="msg" if="{{!!msg.content}}" grab:click="closeMsg">{{ msg.content }}</text>
+</stack>

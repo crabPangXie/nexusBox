@@ -1,0 +1,75 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.title{
+    width: 254px;
+    height: 102px;
+    left: 77px;
+}
+.btn{
+    width: 110px;
+    height: 110px;
+    left: 149px;
+    top: 300px;
+    background-image: url('/common/welcome/btn.png');
+    background-color: transparent;
+    border-radius: 0px;
+}
+.arrow{
+    width: 37px;
+    height: 33px;
+    top: 338px;
+}
+
+.welcome_icon{
+    width: 114px;
+    height: 114px;
+    background-color: transparent;
+}
+.welcome_title{
+    color: #808080;
+    text-align: center;
+    font-size: 24px;
+}
+.welcome_intro{
+    font-size: 28px;
+    width: 85%;
+    text-align: center;
+}
+.welcome_text{
+    width: 90%;
+    text-align: center;
+}
+.qrcodeDiv{
+    width: 220px;
+    height: 220px;
+    font-size: 26px;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    margin-bottom: 15px;
+}
+.qrcode{
+    width: 180px;
+    height: 180px;
+}
+.welcome_btn{
+    width: 220px;
+    height: 80px;
+}
+.welcome_agree {
+    background-color: #2071FF;
+    color: white;
+}
+
+.welcome_disagree {
+    margin-top: 20px;
+    background-color: #16283E;
+    color: #69A0F2;
+}

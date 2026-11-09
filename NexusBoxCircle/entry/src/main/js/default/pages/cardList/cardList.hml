@@ -1,0 +1,41 @@
+<stack class="container" style="background-color: #101011;" on:swipe="close" on:click="closeMenu" on:touchstart="closeMenu">
+    <image style="width: 466px;height: 480px;opacity: 0.5;" src="/common/device/bgd.png"></image>
+    <list class="list" ref="list" on:scrolltop="lastPage" on:scrollbottom="nextPage" on:scrollend="closeMenu">
+        <list-item if="{{page==0}}"class="bar_item" on:click="edit">
+            <text style="margin-top: 5px;font-size: 38px;font-family: {{font}};">{{titleList[type]}}</text>
+            <div class="bar_title" if="{{num>0}}">
+                <text style="color: #838383;font-size: 24px">共{{num}}项</text>
+                <input class="bar_btn"></input>
+            </div>
+        </list-item>
+
+        <list-item else class="container" style="height: 106px;">
+            <image class="planet" grab:click="lastPage" src="/common/list/planet.png"></image>
+        </list-item>
+
+        <list-item class="card" on:longpress="showMenu($idx)" style="margin-bottom: 10px;" for="{{list}}" on:click="openFile($idx)">
+            <image class="container" src="{{'internal://app/'+type+'/'+$item.idx+'/cover.bin'}}"></image>
+            <marquee class="card_name" style="font-family: {{listFont}};">{{$item.name}}</marquee>
+            <text class="card_time" style="font-family: {{listFont}};">{{ $item.time }}</text>
+        </list-item>
+
+        <list-item if="{{!num}}" class="container" style="height: 245px;flex-direction: column;">
+            <image src="/common/empty.png" style="width: 100px;height: 100px;margin-top: -10px;"></image>
+            <div class="tips_div" on:click="tips">
+                <text style="color: #b3ffffff;margin-right: 5px;">没有文件</text>
+                <image class="tips" style="opacity: 0.7;" show="{{page>=maxPage}}" src="/common/tips.png"></image>
+            </div>
+        </list-item>
+
+        <list-item if="{{!!num}}" class="container" style="height: 86px;flex-direction: row;">
+            <image show="{{page<maxPage}}" grab:click="nextPage" class="planet" src="/common/list/planet.png"></image>
+            <image class="tips" show="{{page>=maxPage}}" style="opacity: 0.5;" src="/common/tips.png"></image>
+            <text show="{{page>=maxPage}}" style="font-size: 24px; color: #838383;">长按卡片可操作项目</text>
+        </list-item>
+        <list-item style="height: 130px;" if="{{fileList.length&&page==maxPage}}"></list-item>
+    </list>
+    <image class="menu" show="{{!!menuAni}}" grab:click="clickMenu" src="/common/list/menu.png" style="left: {{menu.x}};top: {{menu.y+30-menuAni*30}};opacity: {{menuAni}};"></image>
+    <div show="{{openIdx>=0&&openAni<1}}" class="container" grab:click="grabTouch" style="background-color: #000000;opacity: {{1-openAni}}">
+        <image style="width: {{120+120*openAni}};height: {{120+120*openAni}};" src="/common/icons/{{iconIdx}}.png"></image>
+    </div>
+</stack>

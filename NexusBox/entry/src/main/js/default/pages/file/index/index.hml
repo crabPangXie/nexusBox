@@ -1,0 +1,61 @@
+<stack class="container"style="background-color: #EDEDED;" on:swipe="close">
+    <div class="container">
+        <list class="list" ref="list">
+            <list-item class="bar_title">
+                <text class="bar_text" style="font-family: {{font}};">文件管理</text>
+            </list-item>
+            <list-item class="item" on:click="jumpToList">
+                <image class="item_icon" src="/common/file/hdd.png"></image>
+                <text class="item_text">内部存储</text>
+                <image class="item_arrow" src="/common/arrow_right.png"></image>
+            </list-item>
+        
+<!--            高级功能-->
+            <list-item class="bar_title" style="height: 60px;">
+                <text class="bar_textMini">高级</text>
+            </list-item>
+            <list-item class="item" on:click="jumpToSearch">
+                <image class="item_icon" src="/common/file/search.png"></image>
+                <text class="item_text">全局搜索</text>
+                <image class="item_arrow" src="/common/arrow_right.png"></image>
+            </list-item>
+
+        <!--            展示收藏的文件，点击后跳转至对应列表界面并选中-->
+            <list-item class="bar_title" style="height: 60px;" if="{{!!collection.length}}">
+                <text class="bar_textMini">收藏({{collection.length}}/20)</text>
+            </list-item>
+            <list-item  if="{{!!collection.length}}" class="item" style="height:{{collection.length*70+20}};flex-direction: column;justify-content: center;">
+                <div style="height: 10px;"></div>
+                <div class="record" for="{{collection}}" on:click="quickJump_collection($idx)" on:longpress="showAlert_collection($idx)">
+                    <marquee class="record_text">{{$item}}</marquee>
+                    <div if="{{$idx!=collection.length-1}}" style="width: 85%;height: 1px;background-color: #b3b3b3;"></div>
+                </div>
+                <div style="height: 10px;"></div>
+            </list-item>
+            <list-item class="bar_title" style="height: 50px;" if="{{!!collection.length}}">
+                <image class="tips" src="/common/tips_black.png" style="opacity: 0.65;"></image>
+                <text style="color: #505050;font-size: 24px;">长按收藏项目可删除</text>
+            </list-item>
+            <list-item style="height: 100px;"></list-item>
+        </list>
+    </div>
+    <input class="bar_back" grab:click="close"></input>
+
+<!--    弹窗-->
+    <stack class="container" show="{{alertShow}}" grab:swipe="closeAlert" style="background-color: #26000000;"></stack>
+    <div class="alert" show="{{alertIf}}" style="top: {{150+(alertShow?0:330)}};animation-name: {{alertShow?'up':'down'}};">
+        <text class="alert_title" grab:click="closeAlert" style="font-family: {{font}};">确认删除</text>
+        <marquee class="alert_content">位置:{{collectionArr[chosenCollection]}}</marquee>
+        <div class="alert_row">
+            <input class="alert_btn" value="取消" on:click="closeAlert"></input>
+            <div style="width: 1px;height: 30px;background-color: #B3B3B3;"></div>
+            <input class="alert_btn" style="color: #e84026;" value="删除" on:click="delete_collection"></input>
+        </div>
+    </div>
+
+    <text class="msg" if="{{!!msg.content}}" grab:click="closeMsg">{{ msg.content }}</text>
+    
+    <div show="{{openIdx>=0&&openAni<1}}" class="container" grab:click="grabTouch" style="background-color: #EDEDED;opacity: {{1-openAni}}">
+        <image style="width: {{120+120*openAni}};height: {{120+120*openAni}};" src="/common/icons/0.png"></image>
+    </div>
+</stack>

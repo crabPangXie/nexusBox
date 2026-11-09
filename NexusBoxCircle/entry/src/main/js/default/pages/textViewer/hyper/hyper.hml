@@ -1,0 +1,39 @@
+<stack class="container" style="background-color: {{style.bgdColor}}"  on:touchstart="touchStart" on:touchmove="touchMove" on:touchend="touchEnd" on:click="clickPage">
+    <stack class="text_container">
+    <text style="color: {{style.color}};top: {{offsetY}};font-family: {{style.font}};" class="text">{{displayText}}</text>
+    </stack>
+    <stack show="{{totalLines>17}}" class="progress_ani" style="width: 99.2%;height: 99.2%;left: {{showProgress?17:1}};top: 0.4%;animation-name: {{showProgress?'appear':'disappear'}};">
+        <progress type="arc" class="progress_circle"></progress>
+        <progress type="arc" class="progress_circle progress_circleBar" percent="100" style="total-angle: {{Math.max(17/totalLines,0.1)*60}};start-angle: {{60+(60-Math.max(17/totalLines,0.1)*60)*getProgress()}};"></progress>
+    </stack>
+
+    <div class="topBar" grab:click="close" show="{{barIf}}" style="top:{{35+(barShow?-105:0)}};animation-name:{{barShow?'topDown':'topUp'}};">
+        <image class="topBar_left" src="/common/text/left.png"></image>
+        <marquee class="topBar_title">{{title}}</marquee>
+    </div>
+    <div class="menu" grab:click="grabTouch" show="{{barIf}}" style="top:{{305+(barShow?165:0)}};animation-name:{{barShow?'menuUp':'menuDown'}};">
+        <div class="bottomBar">
+            <image grab:click="changTarget" style="width: 55px;height: 100%;" src="/common/text/{{target?'light':'page'}}.png"></image>
+            <div class="bottomBar_progressBg">
+                <div class="bottomBar_progress" style="width: {{40+210*setArr[target]/100}};">
+                    <div class="bottomBar_dot"></div>
+                </div>
+            </div>
+            <div class="bottomBar_btn">
+                <text class="bottomBar_text">{{setArr[target]}}%</text>
+            </div>
+        </div>
+        <div class="menu_bottom">
+            <div class="menu_auto" grab:click="clickAuto">
+                <image class="container" src="/common/text/{{auto?'auto':'unAuto'}}.png"></image>
+                <text class="menu_text">自动翻页-{{['慢','中','快'][autoSpeed]}}</text>
+            </div>
+            <input class="menu_setting" grab:click="setting"></input>
+        </div>
+    </div>
+    <slider style="top: {{barShow?320:-40}};" grab:click="grabTouch" grab:change="listenText" max="50" value="{{focusValue}}" min="0" ref="text" class="slider"></slider>
+    <text class="msg" show="{{!!msg.content}}" grab:click="closeMsg">{{ msg.content }}</text>
+    <stack class="container" show="{{showPopup}}" grab:click="confirmPopup" grab:swipe="grabTouch">
+        <image class="popup" src="/common/popup.png"></image>
+    </stack>
+</stack>

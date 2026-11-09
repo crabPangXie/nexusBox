@@ -1,0 +1,17 @@
+<stack class="container" on:click="action('click')" on:longpress="action('longpress')" on:touchstart="action('touchstart')" on:touchmove="action('touchmove')" on:touchend="action('touchend')">
+    <text class="container" style="font-family: {{font}};">正在连接中...</text>
+    <image if="{{display}}" src="internal://app/phone.png"></image>
+    <image if="{{ready}}" class="container" src="internal://app/phone.png"></image>
+    <div class="alert_bar" show="{{allowAlert}}"></div>
+    <image grab:click="clickTools" grab:touchend="grabTouch" class="alert" src="/common/link/tools.png" style="top: {{alertY}};"></image>
+    <div class="container" grab:swipe="close" if="{{!connected}}" style="background-color: black;justify-content: flex-end;">
+        <image class="exclamation" src="/common/exclamation.png"></image>
+        <text style="font-family: {{font}};">未连接到腕连闪传</text>
+        <text class="exclamation_text">请先在手机端打开腕连闪传-多屏协同，即可使用设备间多屏协同功能。</text>
+        <input class="confirm" value="知道了" grab:click="close"></input>
+    </div>
+    <div show="{{openIdx>=0&&openAni<1}}" class="container" grab:click="grabTouch" grab:swipe="grabTouch" style="background-color: #000000;opacity: {{1-openAni}}">
+        <image style="width: {{120+120*openAni}};height: {{120+120*openAni}};" src="/common/icons/7.png"></image>
+    </div>
+    <text class="msg" show="{{!!msg.content}}" grab:click="closeMsg">{{ msg.content }}</text>
+</stack>

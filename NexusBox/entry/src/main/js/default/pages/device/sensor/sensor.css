@@ -1,0 +1,137 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.bar_back{
+    width: 70px;
+    height: 70px;
+    left: 24px;
+    top: 24px;
+    background-image:url('/common/back_white.png');
+    background-color: transparent;
+    border-radius: 0px;
+}
+.bar_select{
+    background-image:url('/common/device/select.png');
+}
+.bar_title{
+    width: 100%;
+    height: 120px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.bar_title_main{
+    margin-top: 5px;
+}
+.bar_subtitle{
+    color: #73ffffff;
+    font-size: 24px;
+}
+.alert_close{
+    width: 60px;
+    height: 60px;
+    background-color: transparent;
+    border-radius: 0px;
+    background-image:url('/common/close.png');
+}
+.alert_bar{
+    width: 100%;
+    height: 100px;
+    margin-bottom: -10px;
+    justify-content: space-between;
+    align-items: center;
+    padding:20px;
+}
+.alert{
+    width: 400px;
+    height: 420px;
+    margin-left: 4px;
+    border-radius: 40px;
+    background-color: #212121;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    animation-duration: 280ms;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+@keyframes up{
+    from{
+        transform: translateY(380);
+    }
+    to{
+        transform: translateY(0);
+    }
+}
+@keyframes down{
+    from{
+        transform: translateY(-380);
+    }
+    to{
+        transform: translateY(0);
+    }
+}
+.alert_list{
+    width: 360px;
+    height: 290px;
+    background-color: transparent;
+}
+.alert_item{
+    width: 100%;
+    height: 75px;
+    align-items: center;
+}
+.alert_shear{
+    width: 100%;
+    height: 70px;
+    text-align: left;
+    padding: 0px 10px;
+    background-color: #353535;
+    color: #d9d9d9;
+    border-radius: 20px;
+}
+.card{
+    width: 400px;
+    height: 220px;
+    left: 4px;
+    top: 110px;
+}
+.chart {
+    width: 400px;
+    height: 220px;
+    left: 4px;
+    top: 110px;
+}
+.chart_canvas{
+    width: 360px;
+    height: 202px;
+    left: 20px;
+    top:9px;
+    background-color: transparent;
+}
+.value{
+    flex-direction: row;
+    justify-content: center;
+    width: 360px;
+    height: 120px;
+    top: 330px;
+    left: 24px;
+}.msg{
+    width:320px;
+    height: 70px;
+    left: 44px;
+    top: 360px;
+    background-color: #f7383838;
+    border-radius: 35px;
+    text-align: center;
+    font-size: 24px;
+}
