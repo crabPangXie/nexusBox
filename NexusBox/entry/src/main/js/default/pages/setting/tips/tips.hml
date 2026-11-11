@@ -4,8 +4,8 @@
         <list-item class="item_title">
             <text style="font-size: 38px;font-family: {{font}};">如何传输</text>
         </list-item>
-        <list-item style="width:100%;height: 200px;justify-content: flex-start;align-items: flex-start;">
-            <text style="width:100%;padding: 0px 20px;color: #b3ffffff;">请前往华为应用市场（AppGallery）搜索并下载“腕连闪传”App，即可实现手机手表间文件传输及信息协同相关功能。</text>
+        <list-item style="width:100%;height: 320px;justify-content: flex-start;align-items: flex-start;">
+            <text style="width:100%;padding: 0px 20px;color: #b3ffffff;text-align: left">·请前往华为应用市场（AppGallery）搜索并下载“腕连闪传”App，即可实现手机手表间文件传输及信息协同相关功能。\n·传输时，请保持手表端应用处于主页，否则将导致传输中断。</text>
         </list-item>
         <list-item class="item_qrcode">
             <div class="qrcodeDiv">
