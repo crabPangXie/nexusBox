@@ -9,12 +9,16 @@ let timer_operate;
 let pulsed=0;
 let generation=0;
 
+function formatInterval(interval){
+    return interval>=1000?(interval/1000).toFixed(1)+'s':interval+'ms';
+}
+
 export default {
     data: {
         font:$app.getData().font,
         running:false,
         interval:50,
-        unit:'ms',
+        intervalText:'50ms',
         duration:10,
         count:0,
         shakeX:0,
@@ -61,7 +65,7 @@ export default {
             return;
         }
         this.shake();
-        const delay=this.unit==='s'?this.interval*1000:this.interval;
+        const delay=this.interval;
         timer_pulse=setTimeout(()=>this.pulse(current),delay);
     },
     shake(){
@@ -110,26 +114,31 @@ export default {
             this.count=Math.max(0,this.count+step);
         },20);
     },
-    changeInterval(step){
-        this.stop();
-        this.interval=Math.max(1,this.interval+step);
+    intervalStep(){
+        if (this.interval<10) return 1;
+        if (this.interval<50) return 10;
+        if (this.interval<=1000) return 50;
+        return 500;
     },
-    pressInterval(step){
+    stepInterval(direction){
+        if (direction>0) {
+            this.interval=this.interval===1000?1500:this.interval+this.intervalStep();
+        } else if (this.interval>1000) this.interval-=500;
+        else if (this.interval>50) this.interval-=50;
+        else if (this.interval>10) this.interval-=10;
+        else if (this.interval>1) this.interval-=1;
+        this.intervalText=formatInterval(this.interval);
+    },
+    changeInterval(direction){
+        this.stop();
+        this.stepInterval(direction);
+    },
+    pressInterval(direction){
         this.stop();
         vibrate();
         timer_operate=setInterval(()=>{
-            this.interval=Math.max(1,this.interval+step);
+            this.stepInterval(direction);
         },20);
-    },
-    toggleUnit(){
-        this.stop();
-        if (this.unit==='ms') {
-            this.interval=Math.max(1,Math.round(this.interval/1000));
-            this.unit='s';
-        } else {
-            this.interval=this.interval*1000;
-            this.unit='ms';
-        }
     },
     changeDuration(step){
         this.stop();

@@ -21,7 +21,7 @@
                 <list-item class="list-item" style="height: 80px;">
                     <div class="btn_container">
                         <input class="btn" value="-" on:click="changeInterval(-1)" on:longpress="pressInterval(-1)" on:touchend="operateRelease"></input>
-                        <text class="btn_text" on:click="toggleUnit">{{interval}}{{unit}}</text>
+                        <text class="btn_text">{{intervalText}}</text>
                         <input class="btn" value="+" on:click="changeInterval(1)" on:longpress="pressInterval(1)" on:touchend="operateRelease"></input>
                     </div>
                 </list-item>
@@ -47,7 +47,7 @@
                 </list-item>
                 <list-item class="item_title" style="height: 100px;">
                     <image class="tips" src="/common/tips.png"></image>
-                    <text class="tips_text">点击频率值可切换单位</text>
+                    <text class="tips_text">长按按钮可连续调节</text>
                 </list-item>
                 <list-item style="height: 50px;"></list-item>
             </list>
