@@ -3,9 +3,9 @@ import Vibrator from '@system.vibrator';
 import { vibrate } from '../../../common/vibrate';
 
 let timer_pulse;
-let timer_stop;
 let timer_ani;
 let timer_operate;
+let startTime=0;
 let pulsed=0;
 let generation=0;
 
@@ -42,31 +42,30 @@ export default {
         }
         this.running=true;
         pulsed=0;
+        startTime=Date.now();
         const current=++generation;
-        if (this.duration>0) {
-            timer_stop=setTimeout(()=>this.stop(),this.duration*1000);
-        }
+        timer_pulse=setInterval(()=>this.pulse(current),this.interval);
         this.pulse(current);
     },
     pulse(current){
         if (!this.running||current!==generation) return;
-        Vibrator.vibrate({
-            mode:'short',
-            success:()=>{},
-            fail:()=>{
-                if (current!==generation) return;
-                this.stop();
-            }
-        });
-        if (!this.running||current!==generation) return;
-        pulsed++;
-        if (this.count>0&&pulsed>=this.count) {
+        if (this.duration>0&&Date.now()-startTime>=this.duration*1000) {
             this.stop();
             return;
         }
+        try {
+            Vibrator.vibrate({
+                mode:'short'
+            });
+        } catch (e) {
+            this.stop();
+            return;
+        }
+        pulsed++;
         this.shake();
-        const delay=this.interval;
-        timer_pulse=setTimeout(()=>this.pulse(current),delay);
+        if (this.count>0&&pulsed>=this.count) {
+            this.stop();
+        }
     },
     shake(){
         if (timer_ani) return;
@@ -89,12 +88,10 @@ export default {
     },
     stop(){
         generation++;
-        clearTimeout(timer_pulse);
-        clearTimeout(timer_stop);
+        clearInterval(timer_pulse);
         clearInterval(timer_ani);
         clearInterval(timer_operate);
         timer_pulse=null;
-        timer_stop=null;
         timer_ani=null;
         timer_operate=null;
         this.running=false;
