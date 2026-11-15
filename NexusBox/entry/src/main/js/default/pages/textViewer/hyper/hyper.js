@@ -317,7 +317,7 @@ export default {
         oriY=e.globalY;
     },
     touchEnd(){
-        //tap检测：无位移视为点击，弹窗操作由clickPage处理（grab:click可拦截click）
+        //grab:click可拦截click，不可拦截touchend
         let moved=0;
         for(let i=0;i<disArr.length;i++)moved+=Math.abs(disArr[i]);
         if(moved<10){
@@ -593,18 +593,14 @@ export default {
                     backRecord:true
                 }
             })
-        }else if (e.direction=='right'){
-            if (!this.msg.timer) {
-                this.sendMsg('再划一次退出')
-            }else {
-                Router.replace({
-                    uri:'/pages/rowList/rowList',
-                    params:{
-                        type:'text',
-                        backRecord:true
-                    }
-                })
-            }
+        }else if (e.direction=='right'&&this.barShow){
+            Router.replace({
+                uri:'/pages/rowList/rowList',
+                params:{
+                    type:'text',
+                    backRecord:true
+                }
+            })
         }
     },
     getProgress(){

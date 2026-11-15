@@ -80,7 +80,7 @@ console.log(data)
 })
 - Storage.set({
 key: 'name',
-value: 'example',
+value: 'crab',
 success: () => {}
 })
 - Storage.delete({key: 'name',success})

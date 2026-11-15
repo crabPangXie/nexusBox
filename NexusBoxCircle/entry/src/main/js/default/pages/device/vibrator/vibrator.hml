@@ -1,0 +1,56 @@
+<stack class="container" on:swipe="close">
+    <image class="background" src="/common/device/bgd.png"></image>
+    <swiper class="container" ref="swiper" vertical="true" loop="false" duration="150" on:change="listenSwiper">
+        <div class="container">
+            <div class="bar_title">
+                <text class="bar_text" style="font-family: {{font}};">震动器测试</text>
+            </div>
+            <stack class="circle_area">
+                <image class="circle" style="left: {{128+shakeX}}; top: {{10+shakeY}};" src="/common/welcome/circle.png"></image>
+            </stack>
+            <input class="confirm" value="{{running?'停止震动':'开始震动'}}" on:click="toggle"></input>
+        </div>
+        <div class="container" grab:swipe="close">
+            <list class="list" ref="list" on:scrolltop="turnPage">
+                <list-item class="item_title">
+                    <text class="bar_text" style="font-family: {{font}};">震动设置</text>
+                </list-item>
+                <list-item class="item_title" style="height: 60px;">
+                    <text>震动间隔</text>
+                </list-item>
+                <list-item class="list-item" style="height: 80px;">
+                    <div class="btn_container">
+                        <input class="btn" value="-" on:click="changeInterval(-1)" on:longpress="pressInterval(-1)" on:touchend="operateRelease"></input>
+                        <text class="btn_text" on:click="toggleUnit">{{interval}}{{unit}}</text>
+                        <input class="btn" value="+" on:click="changeInterval(1)" on:longpress="pressInterval(1)" on:touchend="operateRelease"></input>
+                    </div>
+                </list-item>
+                <list-item class="item_title" style="height: 60px;">
+                    <text>震动次数</text>
+                </list-item>
+                <list-item class="list-item" style="height: 80px;">
+                    <div class="btn_container">
+                        <input class="btn" value="-" on:click="changeCount(-1)" on:longpress="pressCount(-1)" on:touchend="operateRelease"></input>
+                        <text class="btn_text">{{count===0?'不限制':count+'次'}}</text>
+                        <input class="btn" value="+" on:click="changeCount(1)" on:longpress="pressCount(1)" on:touchend="operateRelease"></input>
+                    </div>
+                </list-item>
+                <list-item class="item_title" style="height: 60px;">
+                    <text>震动时长</text>
+                </list-item>
+                <list-item class="list-item" style="height: 80px;">
+                    <div class="btn_container">
+                        <input class="btn" value="-" on:click="changeDuration(-1)" on:longpress="pressDuration(-1)" on:touchend="operateRelease"></input>
+                        <text class="btn_text">{{duration===0?'不限制':duration+'秒'}}</text>
+                        <input class="btn" value="+" on:click="changeDuration(1)" on:longpress="pressDuration(1)" on:touchend="operateRelease"></input>
+                    </div>
+                </list-item>
+                <list-item class="item_title" style="height: 100px;">
+                    <image class="tips" src="/common/tips.png"></image>
+                    <text class="tips_text">点击频率值可切换单位</text>
+                </list-item>
+                <list-item style="height: 50px;"></list-item>
+            </list>
+        </div>
+    </swiper>
+</stack>

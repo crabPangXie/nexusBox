@@ -149,14 +149,36 @@ export default {
         });
     },
     onShow(){
-        if (this.$refs.list.rotation) {
-            this.$refs.list.rotation()
+        if (this.$refs.swiper.rotation) {
+            this.$refs.swiper.rotation()
         };
     },
     onHide(){
         if (this.$refs.list.rotation) {
             this.$refs.list.rotation({focus:false})
         };
+        if (this.$refs.swiper.rotation) {
+            this.$refs.swiper.rotation({focus:false})
+        };
+    },
+    listenSwiper(e){
+        switch (e.index){
+            case 0:{
+                if (this.$refs.swiper.rotation) {
+                    this.$refs.swiper.rotation()
+                };
+                break
+            };
+            case 1:{
+                if (this.$refs.list.rotation) {
+                    this.$refs.list.rotation()
+                };
+                break
+            }
+        }
+    },
+    turnPage(){
+        this.$refs.swiper.swipeTo({index:0})
     },
     less(){
         if (this.idx>0) {

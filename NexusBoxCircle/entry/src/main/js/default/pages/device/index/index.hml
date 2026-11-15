@@ -4,12 +4,16 @@
         <list-item class="item_title">
             <text style="font-size: 38px;font-family: {{font}};">设备参数</text>
         </list-item>
-        <list-item class="card"  on:click="jumpToBench">
+        <list-item class="card" if="{{devVersion}}"  on:click="jumpToBench">
             <text>JS引擎测试</text>
             <image style="width: 20px;height: 40px;" src="/common/arrow_white.png"></image>
         </list-item>
         <list-item class="card" on:click="jumpToSensor">
             <text>传感器测试</text>
+            <image style="width: 20px;height: 40px;" src="/common/arrow_white.png"></image>
+        </list-item>
+        <list-item class="card" on:click="jumpToVibrator">
+            <text>震动器测试</text>
             <image style="width: 20px;height: 40px;" src="/common/arrow_white.png"></image>
         </list-item>
         <list-item class="item_title" style="height: 80px;">

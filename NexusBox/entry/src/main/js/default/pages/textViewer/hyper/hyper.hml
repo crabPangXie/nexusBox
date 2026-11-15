@@ -1,4 +1,4 @@
-<stack class="container" style="background-color: {{style.bgdColor}}"  on:touchstart="touchStart" on:touchmove="touchMove" on:touchend="touchEnd" on:click="clickPage">
+<stack class="container" style="background-color: {{style.bgdColor}}" on:swipe="close"  on:touchstart="touchStart" on:touchmove="touchMove" on:touchend="touchEnd" on:click="clickPage">
     <stack class="text_container">
     <text style="color: {{style.color}};top: {{offsetY}};font-family: {{style.font}};" class="text">{{displayText}}</text>
     </stack>

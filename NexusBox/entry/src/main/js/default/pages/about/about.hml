@@ -27,6 +27,10 @@
             <text style="font-family: {{font}};margin-top: 20px;">探索更多</text>
             <text style="opacity: 0.6;margin-top: 10px;">QQ群：1076737411</text>
         </list-item>
+        <list-item class="card" on:click="showAlert(3)">
+            <text style="font-family: {{font}};">开源代码许可-NexusBox</text>
+            <image class="right" src="/common/arrow_white.png"></image>
+        </list-item>
         <list-item class="card" on:click="showAlert(1)">
             <text style="font-family: {{font}};">开源代码许可-devdemo</text>
             <image class="right" src="/common/arrow_white.png"></image>
@@ -49,16 +53,17 @@
     <stack class="container" show="{{alertShow>0}}" style="background-color:#33000000" grab:click="grabClick" grab:swipe="swipeAlert"></stack>
     <div class="alert" show="{{alertIf}}" style="left: {{width/2-200}};top: {{(screen=='rect'?70:100)+(alertShow?0:450)}};animation-name: {{alertShow?'up':'down'}};">
         <div class="alert_bar">
-            <text style="font-family: {{font}};font-size: 38px;">{{['开源代码许可','隐私政策'][alertShow-1]}}</text>
+            <text style="font-family: {{font}};font-size: 38px;">{{['开源代码许可','隐私政策','开源代码许可'][alertShow-1]}}</text>
             <input class="close" on:click="closeAlert"></input>
         </div>
         <div class="alert_container">
             <div class="alert_qr">
-                <qrcode style="width: 180px;height: 180px;" value="{{ ['https://github.com/kqakqakqa/hmlitewearable_devdemo','https://fseatech.cn/crab/nexustools.html'][alertShow-1]}}"></qrcode>
+                <qrcode style="width: 180px;height: 180px;" value="{{ ['https://github.com/kqakqakqa/hmlitewearable_devdemo','https://fseatech.cn/crab/nexustools.html','https://github.com/crabPangXie/nexusBox/'][alertShow-1]}}"></qrcode>
             </div>
             <text style="font-size: 24px;" show="{{alertShow==1}}">hmlitewearable-devdemo</text>
             <text style="font-size: 24px;" show="{{alertShow==2}}">《关于腕连工具箱与隐私的声明》</text>
-            <text style="color: #80ffffff;font-size: 24px;" show="{{alertShow==1}}">类型:MIT License</text>
+            <text style="font-size: 24px;" show="{{alertShow==3}}">NexusBox</text>
+            <text style="color: #80ffffff;font-size: 24px;" show="{{alertShow==1||alertShow==3}}">类型:MIT License</text>
         </div>
     </div>
 

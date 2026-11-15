@@ -255,13 +255,16 @@ export default {
     getRealUri(){
         return this.rootPath+this.uri
     },
+    escapeUri(uri){
+        return (uri||'').split('\\').join('\\\\')
+    },
     getRootUri(){
         return this.rootPath
     },
     checkEditPermission(uri){
         if (this.devMode)return true;
         if (this.rootPath.indexOf('\\')<0)return true;
-        if ((uri||'').indexOf('com.example.example')>=0)return true;
+        if ((uri||'').indexOf('com.nexus.toolbox')>=0)return true;
         this.sendMsg('权限不足');
         return false;
     },
@@ -271,7 +274,7 @@ export default {
         this.uri='';
         //rootPath跳出沙箱后，按跳出层数把uri定位回工具箱目录；超过已知最远层级则不定位
         if (this.rootPath.indexOf('\\')<0)return;
-        const parts=['user','ace','data','com.example.example'];
+        const parts=['user','ace','data','com.nexus.toolbox'];
         let depth=0;
         let idx=this.rootPath.indexOf('\\..');
         while (idx>=0){
@@ -678,7 +681,7 @@ export default {
                 {t:'文件夹',c:'计算中...'},
                 {t:'总大小',c:'计算中...'},
                 {t:'路径',c:this.uri?this.uri:'内部存储'},
-                {t:'uri',c:this.getRealUri()},
+                {t:'uri',c:this.escapeUri(this.getRealUri())},
             ];
             count();
         }else {
@@ -688,7 +691,7 @@ export default {
                 {t:'大小',c:file.type=='dir'?'计算中...':getSize(file.length)},
                 {t:'类型',c:file.type},
                 {t:'路径',c:this.uri+'/'+file.uri},
-                {t:'uri',c:this.getRealUri()+'/'+file.uri},
+                {t:'uri',c:this.escapeUri(this.getRealUri()+'/'+file.uri)},
             ];
             if (file.type=='dir') {
                 this.toastList.splice(1, 0, {t: '文件', c: '计算中...'},{t: '文件夹', c: '计算中...'});

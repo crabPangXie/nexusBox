@@ -1,6 +1,6 @@
 {
   "app": {
-    "vendor": "crab",
+    "vendor": "nexus",
     "bundleName": "com.example.example",
     "version": {
       "code": 1,
@@ -55,6 +55,7 @@
           "pages/device/index/index",
           "pages/device/benchmark/benchmark",
           "pages/device/sensor/sensor",
+          "pages/device/vibrator/vibrator",
           "pages/welcome/welcome",
           "pages/about/about",
           "pages/setting/adjust/adjust",
@@ -70,6 +71,16 @@
       }
     ],
     "reqPermissions": [
+      {
+        "reason": "震动器测试",
+        "usedScene": {
+          "ability": [
+            "default"
+          ],
+          "when": "inuse"
+        },
+        "name": "ohos.permission.VIBRATE"
+      },
       {
         "reason": "使用加速度传感器",
         "usedScene": {

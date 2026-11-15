@@ -181,7 +181,7 @@ function probeRootPath(devVersion){
             fail:()=>{}
         });
     };
-    setTimeout(probe,800);//首个探针延后，避免拉长应用启动
+    setTimeout(probe,1500);//首个探针延后，避免拉长应用启动
 };
 export default {
     getData(){

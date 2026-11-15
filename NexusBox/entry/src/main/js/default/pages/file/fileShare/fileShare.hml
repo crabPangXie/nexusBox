@@ -1,26 +1,36 @@
 <stack class="container" style="background-color: #EDEDED;" on:swipe="close">
-    <list class="container" ref="list">
-        <list-item class="bar_item">
+    <swiper class="container" ref="swiper" vertical="true" loop="false" duration="150" on:change="listenSwiper">
+        <div class="container">
             <div class="bar_title">
                 <text class="bar_text" style="font-family: {{font}};">文本分享</text>
                 <marquee style="width:100%;height: 28px;color: #383838;font-size: 24px;margin-top: 5px;text-align: center;">{{title}}</marquee>
             </div>
-            <image on:click="changeAuto" class="auto" src="/common/share/{{auto?'auto':'unAuto'}}.png"></image>
-        </list-item>
-        <list-item if="{{!!text}}" class="list-item" style="height: 260px;">
+        <div if="{{!!text}}" class="list-item" style="height: 260px;">
             <qrcode style="width: 260px;height: 260px;background-color: #EDEDED;" value="{{text}}"></qrcode>
-        </list-item>
-        <list-item else class="list-item" style="height: 260px;flex-direction: column;">
+        </div>
+        <div else class="list-item" style="height: 260px;flex-direction: column;">
             <image src="/common/empty.png" style="width: 100px;height: 100px;margin-top: -20px;"></image>
             <text style="color: #303030">未读取到内容</text>
-        </list-item>
-        <list-item class="list-item" style="height: 80px;">
+        </div>
+        <div class="list-item" style="height: 80px;">
             <input class="btn" on:click="less" style="background-image: url('/common/share/left.png');"></input>
             <text class="btn_text" style="width: 120px;">{{progress}}%</text>
             <input class="btn" on:click="more" style="background-image: url('/common/share/right.png');"></input>
-        </list-item>
-        <list-item class="list-item" style="height: 20px;align-items: flex-start;">
+        </div>
+        <div class="list-item" style="height: 20px;align-items: flex-start;">
             <div class="bar"></div>
+        </div>
+        </div>
+        <div class="container" grab:swipe="close">
+        <list class="container" ref="list" on:scrolltop="turnPage">
+        <list-item class="bar_item">
+            <text class="bar_text" style="font-family: {{font}};">高级设置</text>
+        </list-item>
+        <list-item class="list-item" style="height: 75px;">
+            <div class="btn_container">
+                <text style="color: black;">闪传分享</text>
+                <switch class="auto" on:change="changeAuto" checked="{{auto}}"></switch>
+            </div>
         </list-item>
         <list-item class="bar_item" style="height: 70px;">
             <text class="bar_text">读取长度</text>
@@ -49,7 +59,9 @@
             <text class="text" style="height: {{height}};">{{text}}</text>
         </list-item>
         <list-item style="height: {{Math.max(120-height,60)}};"></list-item>
-    </list>
+        </list>
+        </div>
+    </swiper>
     <input class="bar_back" grab:click="close"></input>
     <text class="msg" if="{{!!msg.content}}" grab:click="closeMsg">{{ msg.content }}</text>
 </stack>

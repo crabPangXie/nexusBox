@@ -12,6 +12,7 @@ let timer_ani;
 export default {
     data: {
         font:$app.getData().font,
+        devVersion:$app.getDevVersion(),
         openIdx:-1,
         openAni:0,
         list: [
@@ -163,6 +164,11 @@ export default {
     jumpToBench(){
         Router.replace({
             uri:'/pages/device/benchmark/benchmark'
+        })
+    },
+    jumpToVibrator(){
+        Router.replace({
+            uri:'/pages/device/vibrator/vibrator'
         })
     },
     jumpToSensor(){
