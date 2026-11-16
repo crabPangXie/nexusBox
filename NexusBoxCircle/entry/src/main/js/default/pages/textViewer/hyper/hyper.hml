@@ -31,7 +31,7 @@
             <input class="menu_setting" grab:click="setting"></input>
         </div>
     </div>
-    <slider style="top: {{barShow?320:-40}};" grab:click="grabTouch" grab:change="listenText" max="50" value="{{focusValue}}" min="0" ref="text" class="slider"></slider>
+    <slider style="top: {{barShow?320:-40}};" grab:click="grabTouch" grab:change="listenText" grab:swipe="grabTouch" max="50" value="{{focusValue}}" min="0" ref="text" class="slider"></slider>
     <text class="msg" show="{{!!msg.content}}" grab:click="closeMsg">{{ msg.content }}</text>
     <stack class="container" show="{{showPopup}}" grab:click="confirmPopup" grab:swipe="grabTouch">
         <image class="popup" src="/common/popup.png"></image>
