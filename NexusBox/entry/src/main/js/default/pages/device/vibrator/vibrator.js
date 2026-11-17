@@ -6,6 +6,7 @@ let timer_pulse;
 let timer_ani;
 let timer_operate;
 let startTime=0;
+let shakeStart=-1000;
 let pulsed=0;
 let generation=0;
 
@@ -17,8 +18,8 @@ export default {
     data: {
         font:$app.getData().font,
         running:false,
-        interval:50,
-        intervalText:'50ms',
+        interval:1000,
+        intervalText:'1.0s',
         duration:10,
         count:0,
         shakeX:0,
@@ -45,6 +46,7 @@ export default {
         startTime=Date.now();
         const current=++generation;
         timer_pulse=setInterval(()=>this.pulse(current),this.interval);
+        timer_ani=setInterval(()=>this.animateShake(),33);
         this.pulse(current);
     },
     pulse(current){
@@ -68,23 +70,25 @@ export default {
         }
     },
     shake(){
-        if (timer_ani) return;
-        const start=Date.now();
-        const length=128;
-        this.shakeX=0;
-        this.shakeY=0;
-        timer_ani=setInterval(()=>{
-            const progress=Math.min((Date.now()-start)/length,1);
-            const envelope=(1-progress)*(1-progress);
-            this.shakeX=Math.sin(progress*Math.PI*4)*envelope*28;
-            this.shakeY=Math.sin(progress*Math.PI*3)*envelope*20;
-            if (progress>=1) {
-                clearInterval(timer_ani);
-                timer_ani=null;
+        if (Date.now()-shakeStart>=128) {
+            shakeStart=Date.now();
+            this.shakeX=0;
+            this.shakeY=0;
+        }
+    },
+    animateShake(){
+        const elapsed=Date.now()-shakeStart;
+        if (elapsed>=128) {
+            if (this.shakeX!==0||this.shakeY!==0) {
                 this.shakeX=0;
                 this.shakeY=0;
             }
-        },16);
+            return;
+        }
+        const progress=elapsed/128;
+        const envelope=(1-progress)*(1-progress);
+        this.shakeX=Math.sin(progress*Math.PI*4)*envelope*28;
+        this.shakeY=Math.sin(progress*Math.PI*3)*envelope*20;
     },
     stop(){
         generation++;

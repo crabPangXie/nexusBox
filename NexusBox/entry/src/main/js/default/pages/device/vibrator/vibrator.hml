@@ -16,7 +16,7 @@
                     <text class="bar_text" style="font-family: {{font}};">震动设置</text>
                 </list-item>
                 <list-item class="item_title" style="height: 60px;">
-                    <text>震动间隔</text>
+                    <text style="font-size: 30px;opacity: 0.6;">震动间隔</text>
                 </list-item>
                 <list-item class="list-item" style="height: 80px;">
                     <div class="btn_container">
@@ -26,7 +26,7 @@
                     </div>
                 </list-item>
                 <list-item class="item_title" style="height: 60px;">
-                    <text>震动次数</text>
+                    <text style="font-size: 30px;opacity: 0.6;">震动次数</text>
                 </list-item>
                 <list-item class="list-item" style="height: 80px;">
                     <div class="btn_container">
@@ -36,7 +36,7 @@
                     </div>
                 </list-item>
                 <list-item class="item_title" style="height: 60px;">
-                    <text>震动时长</text>
+                    <text style="font-size: 30px;opacity: 0.6;">震动时长</text>
                 </list-item>
                 <list-item class="list-item" style="height: 80px;">
                     <div class="btn_container">
