@@ -133,7 +133,7 @@ export default {
     showMenu(idx,e){
         vibrate()
         this.menu.x=Math.min(e.globalX,240);
-        this.menu.y=Math.min(e.globalY,360);
+        this.menu.y=Math.min(e.globalY,this.type=='video'?300:360);
         this.chosenIdx=this.fileList.length-1-(idx+this.page*10);
         this.menuAni=0;
         this.springTo(1,'menuAni')
@@ -146,11 +146,14 @@ export default {
     },
     clickMenu(e){
         if (this.chosenIdx<0||!this.menuAni)return;
-        const idx=Math.ceil((e.globalY-this.menu.y)/60)-1;
+        const idx=Math.floor((e.globalY-(this.menu.y+30-this.menuAni*30))/60);
         if (idx==0) {
             this.rename()
         }else if(idx==1){
             this.deleteFile()
+        }else if(idx==2){
+            Audio.volume=0;
+            this.openFile(this.fileList.length-1-this.chosenIdx-this.page*10)
         }
         this.closeMenu()
     },

@@ -34,7 +34,7 @@
         </list-item>
         <list-item style="height: 130px;" if="{{fileList.length&&page==maxPage}}"></list-item>
     </list>
-    <image class="menu" show="{{!!menuAni}}" grab:click="clickMenu" src="/common/list/menu.png" style="left: {{menu.x}};top: {{menu.y+30-menuAni*30}};opacity: {{menuAni}};"></image>
+    <image class="menu" show="{{!!menuAni}}" grab:click="clickMenu" src="{{type=='video'?'/common/list/menu_video.png':'/common/list/menu.png'}}" style="height: {{type=='video'?180:120}};left: {{menu.x}};top: {{menu.y+30-menuAni*30}};opacity: {{menuAni}};"></image>
     <div show="{{openIdx>=0&&openAni<1}}" class="container" grab:click="grabTouch" style="background-color: #000000;opacity: {{1-openAni}}">
         <image style="width: {{120+120*openAni}};height: {{120+120*openAni}};" src="/common/icons/{{iconIdx}}.png"></image>
     </div>
