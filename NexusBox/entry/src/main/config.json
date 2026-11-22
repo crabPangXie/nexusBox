@@ -60,6 +60,7 @@
           "pages/setting/adjust/adjust",
           "pages/setting/fileSetting/fileSetting",
           "pages/setting/videoSetting/videoSetting",
+          "pages/setting/A11ySetting/A11ySetting",
           "pages/setting/readSetting/readSetting",
           "pages/setting/scriptSetting/scriptSetting",
           "pages/setting/imageSetting/imageSetting",

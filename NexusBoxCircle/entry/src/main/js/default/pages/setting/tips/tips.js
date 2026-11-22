@@ -40,7 +40,7 @@ export default {
                 Router.replace({
                     uri:'/pages/setting/setting',
                     params:{
-                        item:11
+                        item:12
                     }
                 })
             }

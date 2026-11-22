@@ -47,6 +47,10 @@
             <text class="item_name">代码编辑器</text>
             <image class="right" src="/common/arrow_white.png"></image>
         </list-item>
+        <list-item class="item_card" on:click="setA11y">
+            <text class="item_name">辅助功能</text>
+            <image class="right" src="/common/arrow_white.png"></image>
+        </list-item>
         <list-item class="item_title" style="height: 80px;">
             <text>更多</text>
         </list-item>

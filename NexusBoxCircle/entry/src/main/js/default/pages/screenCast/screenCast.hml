@@ -1,9 +1,9 @@
-<stack class="container" on:click="action('click')" on:longpress="action('longpress')" on:touchstart="action('touchstart')" on:touchmove="action('touchmove')" on:touchend="action('touchend')">
+<stack class="container" on:swipe="onGestureBack" on:click="action('click')" on:longpress="action('longpress')" on:touchstart="action('touchstart')" on:touchmove="action('touchmove')" on:touchend="action('touchend')">
     <text class="container" style="font-family: {{font}};">正在连接中...</text>
     <image if="{{display}}" src="internal://app/phone.png"></image>
     <image if="{{ready}}" class="container" src="internal://app/phone.png"></image>
-    <div class="alert_bar" show="{{allowAlert}}"></div>
-    <image grab:click="clickTools" grab:touchend="grabTouch" class="alert" src="/common/link/tools.png" style="top: {{alertY}};"></image>
+    <div class="alert_bar" style="opacity: {{allowAlert?1:0.5}};"></div>
+    <image grab:swipe="close" grab:click="clickTools" grab:touchend="grabTouch" class="alert" src="/common/link/tools.png" style="top: {{alertY}};"></image>
     <div class="container" grab:swipe="close" if="{{!connected}}" style="background-color: black;justify-content: flex-end;">
         <image class="exclamation" src="/common/exclamation.png"></image>
         <text style="font-family: {{font}};">未连接到腕连闪传</text>

@@ -94,6 +94,9 @@ export default {
             uri:'/pages/setting/imageSetting/imageSetting',
         })
     },
+    setA11y(){
+        Router.replace({uri:'/pages/setting/A11ySetting/A11ySetting'});
+    },
     setVideo(){
         Router.replace({
             uri:'/pages/setting/videoSetting/videoSetting',

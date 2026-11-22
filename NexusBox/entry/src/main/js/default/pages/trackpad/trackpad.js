@@ -1,4 +1,6 @@
 import Router from '@system.router';
+import { vibrate } from '../../common/vibrate';
+import { getData } from '../../common/storage';
 import { P2pClient, Message ,PeerDeviceClient} from '../../common/wearengine';
 let p2p=new P2pClient();
 let peerDeviceClient = new PeerDeviceClient();
@@ -6,6 +8,9 @@ let timer_alert;
 let timer_ani,timer_ping;
 let deviceType=0;
 let touching=false;
+let gestureBack=false;
+let forwardingTouch=false;
+let pendingSwipe;
 export default {
     data: {
         font:$app.getData().font,
@@ -16,6 +21,7 @@ export default {
         connected:true,
     },
     onInit() {
+        getData('gesture_back', (v) => { gestureBack = v === true; }, false);
         this.subscribeConnect();
         timer_ping=setInterval(()=>this.subscribeConnect(),5000);
     },
@@ -58,12 +64,20 @@ export default {
         clearTimeout(timer_alert);
         timer_alert=setTimeout(()=>this.closeAlert(),2000);
         if (e.globalX>260) {
+            vibrate();
             this.sendMessage('controlHome');
         }else if (e.globalX>147){
+            vibrate();
             this.sendMessage('controlBack');
         }else {
             this.close()
         }
+    },
+    onGestureBack(e){
+        if (!gestureBack || e.direction !== 'right') return;
+        // Firmware can deliver swipe before the final touch event.
+        if (forwardingTouch) pendingSwipe = e;
+        else this.close(e);
     },
     close(e={type:'click'}){
         if (e.direction=='right'||e.type=='click') {
@@ -80,6 +94,10 @@ export default {
         this.springTo(-90,'alertY')
     },
     action(type,e){
+        if (type === 'touchstart') {
+            forwardingTouch = false;
+            pendingSwipe = null;
+        }
         if (type=='touchstart'&&e.globalY<=70&&e.direction=="down") {
             clearTimeout(timer_alert);
             touching=true;
@@ -108,7 +126,16 @@ export default {
             y:e.globalY,
             width:408,
             height:480
-        })
+        });
+        if (type === 'touchstart') forwardingTouch = true;
+        if (type === 'touchend') {
+            forwardingTouch = false;
+            if (pendingSwipe) {
+                const swipe = pendingSwipe;
+                pendingSwipe = null;
+                this.onGestureBack(swipe);
+            }
+        }
     },
     sendMessage(event,content){
         const time=Date.now();

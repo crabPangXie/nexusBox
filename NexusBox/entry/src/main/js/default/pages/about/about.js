@@ -161,7 +161,7 @@ export default {
         Router.replace({
             uri:'/pages/setting/setting',
             params:{
-                item:12
+                item:13
             }
         })
     },

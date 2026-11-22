@@ -1,0 +1,15 @@
+<stack class="container" on:swipe="close">
+    <image style="width: 466px;height: 480px;" src="/common/device/bgd.png"></image>
+    <list class="list" ref="list">
+        <list-item class="item_title">
+            <text style="font-size: 38px;font-family: {{font}};">辅助功能</text>
+        </list-item>
+        <list-item class="item_card">
+            <text class="item_name">全局右滑手势</text>
+            <switch class="item_switch" checked="{{gestureBack}}" on:change="onGestureBackChange"></switch>
+        </list-item>
+        <list-item style="width:100%;height: 200px;justify-content: flex-start;align-items: flex-start;">
+            <text style="width:100%;padding: 0px 20px;color: #b3ffffff;font-size: 24px;">开启后，触控板\多屏协同界面也将启用系统统一的右滑返回手势。</text>
+        </list-item>
+    </list>
+</stack>
